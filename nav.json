@@ -1,0 +1,173 @@
+{
+    "designSystemName": "CyberdeckNav",
+    "aesthetic": [
+      "dark-mode",
+      "futuristic",
+      "sci-fi",
+      "neon",
+      "gaming-ui",
+      "cyberpunk"
+    ],
+    "colors": {
+      "background": {
+        "primary": "#05020a",
+        "texture": "Subtle white/cyan speckles resembling a starfield or digital noise."
+      },
+      "primary": {
+        "electricCyan": "#00f0ff",
+        "vibrantPurple": "#7e2cff"
+      },
+      "accent": {
+        "hotPink": "#d946ef"
+      },
+      "text": {
+        "primary": "#ffffff",
+        "logoAccent": "#00f0ff"
+      },
+      "utility": {
+        "borderGlow": "rgba(0, 240, 255, 0.7)",
+        "techGraphic": "#ffffff"
+      },
+      "gradients": {
+        "activeState": "linear-gradient(90deg, #007cf0, #7e2cff)"
+      }
+    },
+    "typography": {
+      "fontFamilies": {
+        "primary": {
+          "name": "Tech Sans-Serif",
+          "style": "A clean, geometric sans-serif with good readability. Slightly condensed."
+        }
+      },
+      "fontStyles": {
+        "logo": {
+          "fontFamily": "primary",
+          "fontSize": "1.5rem",
+          "fontWeight": 700
+        },
+        "navLink": {
+          "fontFamily": "primary",
+          "fontSize": "1rem",
+          "fontWeight": 500,
+          "textTransform": "capitalize"
+        }
+      }
+    },
+    "layout": {
+      "container": {
+        "display": "flex",
+        "alignItems": "center",
+        "justifyContent": "space-between",
+        "padding": "0.5rem 1rem",
+        "gap": "0.5rem"
+      }
+    },
+    "components": {
+      "navigationBar": {
+        "description": "The main container for the entire navigation system.",
+        "style": {
+          "background": "var(--background-primary)",
+          "backgroundImage": "url('path/to/speckle-texture.png')",
+          "borderRadius": "16px",
+          "border": "2px solid rgba(0, 240, 255, 0.4)",
+          "boxShadow": "0 0 15px 3px var(--border-glow)"
+        }
+      },
+      "logo": {
+        "description": "The brand logo at the start of the navigation bar.",
+        "style": {
+          "display": "flex",
+          "alignItems": "center",
+          "gap": "0.75rem",
+          "padding": "0.25rem"
+        },
+        "icon": {
+          "description": "Circular icon containing a character illustration.",
+          "size": "40px x 40px"
+        },
+        "text": {
+          "description": "The text part of the logo, with a colored first character.",
+          "color": "var(--text-primary)",
+          "accentCharacterColor": "var(--text-logoAccent)"
+        }
+      },
+      "navLink": {
+        "description": "The primary button component for navigation links.",
+        "baseStyle": {
+          "shape": "Asymmetrical, with a sharp angle on the left and a straight edge on the right.",
+          "display": "flex",
+          "flexDirection": "column",
+          "alignItems": "center",
+          "justifyContent": "center",
+          "padding": "0.5rem 1.25rem",
+          "background": "transparent",
+          "border": "1px solid #333",
+          "position": "relative"
+        },
+        "defaultState": {
+          "description": "The standard appearance for an inactive link.",
+          "accentBar": {
+            "position": "absolute",
+            "top": "2px",
+            "left": "10px",
+            "right": "2px",
+            "height": "3px",
+            "background": "var(--accent-hotPink)",
+            "clipPath": "polygon(5% 0, 100% 0, 100% 100%, 0% 100%)"
+          },
+          "techGraphic": {
+            "description": "A decorative, futuristic graphic element at the bottom of the button.",
+            "color": "var(--tech-graphic)",
+            "height": "8px",
+            "marginTop": "4px",
+            "background": "repeating-linear-gradient(-45deg, #fff, #fff 2px, transparent 2px, transparent 4px)"
+          },
+          "textColor": "var(--text-primary)"
+        },
+        "activeState": {
+          "description": "The appearance for the currently selected link.",
+          "background": "var(--gradients-activeState)",
+          "techGraphic": {
+            "description": "The graphic is fully filled to indicate an active state.",
+            "background": "var(--tech-graphic)"
+          },
+          "textColor": "var(--text-primary)"
+        },
+        "hoverState": {
+          "description": "Visual feedback on mouse hover. Inferred from the overall aesthetic.",
+          "filter": "brightness(1.2)",
+          "transform": "translateY(-2px)"
+        }
+      },
+      "languageSelector": {
+        "description": "A dropdown component for language selection.",
+        "style": {
+          "shape": "Rounded rectangle.",
+          "display": "flex",
+          "alignItems": "center",
+          "gap": "0.5rem",
+          "padding": "0.5rem 0.75rem",
+          "background": "transparent",
+          "border": "1px solid var(--tech-graphic)",
+          "borderRadius": "8px"
+        },
+        "flagIcon": {
+          "size": "24px x 24px",
+          "borderRadius": "50%"
+        },
+        "chevronIcon": {
+          "color": "var(--tech-graphic)"
+        }
+      }
+    },
+    "effects": {
+      "neonGlow": {
+        "description": "A soft, colored glow applied to the main container's border.",
+        "css": "box-shadow: 0 0 15px 3px var(--color);"
+      },
+      "speckleTexture": {
+        "description": "A subtle, noisy texture used in the background to add depth and a 'space' or 'digital' feel.",
+        "css": "background-image: url(...);"
+      }
+    }
+  }

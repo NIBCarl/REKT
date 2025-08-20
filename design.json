@@ -1,0 +1,317 @@
+{
+    "designSystemName": "NeonRekt",
+    "aesthetic": [
+      "dark-mode",
+      "neon",
+      "futuristic",
+      "crypto",
+      "gaming",
+      "tech-noir"
+    ],
+    "colors": {
+      "primary": {
+        "deepPurple": "#1a0f30",
+        "brightPurple": "#8a2be2",
+        "electricBlue": "#00ffff",
+        "hotPink": "#ff007f"
+      },
+      "secondary": {
+        "limeGreen": "#32cd32",
+        "vibrantTeal": "#00f5d4"
+      },
+      "background": {
+        "main": "#120c24",
+        "section": "rgba(26, 15, 48, 0.8)",
+        "card": "rgba(30, 20, 60, 0.5)"
+      },
+      "text": {
+        "primary": "#ffffff",
+        "secondary": "#a09fb2",
+        "accent": "#00ffff",
+        "highlight": "#ff007f"
+      },
+      "utility": {
+        "success": "#32cd32",
+        "warning": "#ffd700",
+        "error": "#ff4d4d"
+      },
+      "gradients": {
+        "primary": "linear-gradient(90deg, #8a2be2, #ff007f)",
+        "secondary": "linear-gradient(90deg, #00ffff, #32cd32)"
+      }
+    },
+    "typography": {
+      "fontFamilies": {
+        "primary": {
+          "name": "Sans-serif, Display",
+          "style": "Modern, geometric, with a slightly extended width. Clean and highly readable."
+        },
+        "secondary": {
+          "name": "Monospace",
+          "style": "Used for data points like prices and timers to give a technical feel."
+        }
+      },
+      "fontStyles": {
+        "h1": {
+          "fontFamily": "primary",
+          "fontSize": "3.5rem",
+          "fontWeight": 700,
+          "letterSpacing": "0.05em",
+          "textTransform": "uppercase"
+        },
+        "h2": {
+          "fontFamily": "primary",
+          "fontSize": "2.5rem",
+          "fontWeight": 600,
+          "letterSpacing": "0.03em"
+        },
+        "h3": {
+          "fontFamily": "primary",
+          "fontSize": "1.8rem",
+          "fontWeight": 500
+        },
+        "body": {
+          "fontFamily": "primary",
+          "fontSize": "1rem",
+          "fontWeight": 400,
+          "lineHeight": 1.6
+        },
+        "buttonText": {
+          "fontFamily": "primary",
+          "fontSize": "1.1rem",
+          "fontWeight": 600,
+          "textTransform": "uppercase"
+        }
+      }
+    },
+    "layout": {
+      "container": {
+        "maxWidth": "1200px",
+        "padding": "0 2rem"
+      },
+      "spacing": {
+        "xs": "0.25rem",
+        "sm": "0.5rem",
+        "md": "1rem",
+        "lg": "2rem",
+        "xl": "4rem"
+      },
+      "gridSystem": "Centered, with sections stacked vertically. Use of multi-column layouts for items like team members and roadmap phases."
+    },
+    "components": {
+      "buttons": {
+        "primary": {
+          "background": "linear-gradient(90deg, #8a2be2, #ff007f)",
+          "textColor": "#ffffff",
+          "border": "none",
+          "borderRadius": "8px",
+          "padding": "1rem 2rem",
+          "boxShadow": "0 0 15px rgba(138, 43, 226, 0.5)",
+          "hoverState": {
+            "transform": "scale(1.05)",
+            "boxShadow": "0 0 25px rgba(255, 0, 127, 0.7)"
+          }
+        },
+        "secondary": {
+          "background": "transparent",
+          "textColor": "#00ffff",
+          "border": "2px solid #00ffff",
+          "borderRadius": "8px",
+          "padding": "0.8rem 1.8rem",
+          "hoverState": {
+            "backgroundColor": "rgba(0, 255, 255, 0.1)"
+          }
+        }
+      },
+      "cards": {
+        "default": {
+          "background": "rgba(30, 20, 60, 0.5)",
+          "border": "2px solid #8a2be2",
+          "borderRadius": "12px",
+          "boxShadow": "inset 0 0 10px rgba(138, 43, 226, 0.3)",
+          "padding": "1.5rem"
+        }
+      },
+      "navigation": {
+        "container": {
+          "background": "rgba(26, 15, 48, 0.8)",
+          "borderBottom": "2px solid #8a2be2"
+        },
+        "link": {
+          "textColor": "#a09fb2",
+          "hoverTextColor": "#ffffff",
+          "activeTextColor": "#00ffff",
+          "activeIndicator": "border-bottom: 2px solid #00ffff;"
+        }
+      },
+      "tables": {
+        "header": {
+          "background": "transparent",
+          "textColor": "#00ffff",
+          "borderBottom": "2px solid #8a2be2"
+        },
+        "row": {
+          "background": "rgba(26, 15, 48, 0.5)",
+          "textColor": "#ffffff",
+          "borderBottom": "1px solid rgba(138, 43, 226, 0.3)",
+          "hoverBackgroundColor": "rgba(138, 43, 226, 0.2)"
+        }
+      },
+      "sections": {
+        "wrapper": {
+          "padding": "4rem 0",
+          "border": "2px solid",
+          "borderImageSource": "linear-gradient(to right, #8a2be2, #00ffff)",
+          "borderImageSlice": 1,
+          "borderTop": "none",
+          "borderBottom": "none",
+          "borderLeft": "none",
+          "borderRight": "none",
+          "background": "radial-gradient(circle, rgba(26,15,48,0.9) 0%, #120c24 70%)"
+        },
+        "title": {
+          "fontStyle": "h2",
+          "textAlign": "center",
+          "marginBottom": "2rem"
+        }
+      }
+    },
+    "iconography": {
+      "style": "Line-art and custom character illustrations. Icons have a slight neon glow.",
+      "color": "#00ffff"
+    },
+    "effects": {
+      "glow": "text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;",
+      "neonBorder": "border: 2px solid #8a2be2; box-shadow: 0 0 10px #8a2be2;",
+      "scanlines": "A subtle overlay of horizontal lines to mimic a CRT screen effect on backgrounds."
+    },
+    "pageContent": {
+      "hero": {
+        "title": "$REKT",
+        "subtitle": "Only losers win",
+        "tagline": "Embrace the crash",
+        "howToBuy": {
+          "title": "How to Buy:",
+          "steps": [
+            "1. Connect your wallet",
+            "2. Choose payment method",
+            "3. Enter amount",
+            "4. Confirm transaction"
+          ]
+        },
+        "presale": {
+          "title": "Phase 1 Presale",
+          "currentPrice": "$0.01",
+          "nextPrice": "$0.02",
+          "progress": "67.5%",
+          "raised": "$2,024,000 raised"
+        }
+      },
+      "tokenomics": {
+        "title": "Rektomics",
+        "subtitle": "Fair distribution for maximum chaos",
+        "total_supply": "1,000,000,000 $REKT",
+        "distribution": [
+          {"name": "Presale", "percentage": 50},
+          {"name": "Treasury", "percentage": 20},
+          {"name": "Liquidity Pool", "percentage": 15},
+          {"name": "Staking Pool", "percentage": 10},
+          {"name": "Community Fund", "percentage": 5}
+        ],
+        "tax": {
+          "title": "1% Tax on Every Buy/Sell",
+          "breakdown": [
+            {"name": "Staking Pool", "percentage": 50},
+            {"name": "Treasury", "percentage": 25},
+            {"name": "Burn", "percentage": 25}
+          ],
+          "note": "Until 200M Burn cap reached. Once 200M $REKT have been burned, burning will stop permanently. 50% will go to the treasury, and 50% will go to staking to encourage long-term growth."
+        }
+      },
+      "leaderboard": {
+        "title": "Loser Leaderboard",
+        "subtitle": "The biggest losers are the biggest winners"
+      },
+      "team": {
+        "title": "Meet the $REKT Legends",
+        "subtitle": "The degenerates who turned pain into profit. Each one battle-tested by the market, forged in the fires of liquidation.",
+        "members": [
+          {"name": "Sadboi", "role": "Founder & Vision Lead"},
+          {"name": "DownBad Dave", "role": "Community Manager & Chief Meme Officer"},
+          {"name": "Liquidation Lisa", "role": "Tokenomics & Staking Specialist"},
+          {"name": "FOMO Fred", "role": "Marketing & Hype Generator"},
+          {"name": "Paperhand Pete", "role": "Risk Management & Anti-Abuse Lead"},
+          {"name": "REKT Roxy", "role": "Lead Developer & Security Expert"}
+        ]
+      },
+      "roadmap": {
+        "title": "$REKT Roadmap",
+        "phase1": {
+          "title": "Launch & Foundation",
+          "goal": "Fair launch, instant staking, lean & meme-ready setup.",
+          "items": [
+            "Deploying Smart Contract.",
+            "Open X (Twitter) & Telegram.",
+            "Dashboard: REKT Score Leaderboard, Vesting Tracker, Staking Reward, Burn Cap.",
+            "Auto Staking For All Presale Tokens, Start Earning From Day One.",
+            "Loss Claim V1 (Only For Presale Investors From $350 Transaction, 1 Claim Per Wallet, On-Chain Verified).",
+            "Solidproof Audit."
+          ]
+        },
+        "phase2": {
+          "title": "Utility & REKT Logic",
+          "goal": "Activate tokenomics, engage stakers, drive on-chain volume.",
+          "items": [
+            "1% Dex Tax: 50% Staking, 25% Treasury, And 25% Burn (Until 200M Burned).",
+            "Rage Claim Penalties Scale Over Time (20% -> 5%).",
+            "REKT Score Leaderboard.",
+            "Loss Claim V2: Wallet Age Multiplies, Cooldowns.",
+            "Burn Cap Tracker + Live Staking Stats.",
+            "Optional NFT Drop To Refill Staking Pool."
+          ]
+        },
+        "phase3": {
+          "title": "Scaling & Community Chaos",
+          "goal": "Meme-powered growth and ecosystem expansion.",
+          "items": [
+            "CEX Outreach (Solana-Friendly).",
+            "MEME Wars: Community Leaderboard + Airdrops.",
+            "Rekt Labs: Experimental Staking/NFT Features.",
+            "Final Audit (Certik Or Ottersec)."
+          ]
+        }
+      },
+      "security": {
+        "title": "Documentation & Security",
+        "subtitle": "Transparency and security first",
+        "whitepaper": {
+          "title": "Whitepaper",
+          "description": "Comprehensive documentation covering tokenomics, roadmap, and technical implementation."
+        },
+        "audit": {
+          "title": "Security Audit",
+          "description": "Third-party security audit by leading blockchain security firms.",
+          "firms": ["Coinsult", "SolidProof"]
+        }
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "subtitle": "Everything you need to know about getting REKT",
+        "questions": [
+          {"q": "Can I sell everything after launch?", "a": "30% Unlocks at launch, the rest vests over 6 months. Want more early? Rage claim but expect a burn penalty."},
+          {"q": "Do I earn rewards on locked tokens?"},
+          {"q": "What happens after the burn cap?"},
+          {"q": "Which tokens can I use for Loss Claims?"},
+          {"q": "Can I stake if I buy after the presale?"},
+          {"q": "How much REKT can I claim from losses?"},
+          {"q": "Is the token distribution fair?"},
+          {"q": "What's in the Treasury?"},
+          {"q": "Where do staking rewards come from?"}
+        ]
+      },
+      "footer": {
+        "disclaimer": "Meme coin with utility. No guaranteed profits. Not financial advice. Use at your own risk.",
+        "socialLinks": ["Telegram", "Twitter/X"]
+      }
+    }
+  }

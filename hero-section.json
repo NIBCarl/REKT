@@ -1,0 +1,233 @@
+{
+    "designSystemName": "NeonCryptox",
+    "aesthetic": [
+      "dark-mode",
+      "futuristic",
+      "cyberpunk",
+      "neon",
+      "crypto-tech",
+      "gaming-ui"
+    ],
+    "colors": {
+      "background": {
+        "primary": "#100821",
+        "gradientStart": "#1a0f30",
+        "gradientEnd": "#100821"
+      },
+      "primary": {
+        "vibrantPurple": "#7e2cff",
+        "lightPurple": "#a855f7"
+      },
+      "secondary": {
+        "electricCyan": "#00f0ff",
+        "teal": "#14b8a6"
+      },
+      "accent": {
+        "hotPink": "#d946ef"
+      },
+      "text": {
+        "primary": "#ffffff",
+        "secondary": "#cbd5e1",
+        "accent": "#00f0ff",
+        "digitalGreen": "#39d393"
+      },
+      "utility": {
+        "glowPurple": "rgba(126, 44, 255, 0.6)",
+        "glowCyan": "rgba(0, 240, 255, 0.5)",
+        "glowPink": "rgba(217, 70, 239, 0.4)"
+      },
+      "gradients": {
+        "button": "linear-gradient(90deg, #7e2cff, #d946ef)",
+        "progressBar": "linear-gradient(90deg, #7e2cff, #00f0ff)",
+        "border": "linear-gradient(90deg, #7e2cff, #00f0ff)"
+      }
+    },
+    "typography": {
+      "fontFamilies": {
+        "primary": {
+          "name": "Geometric Sans-Serif",
+          "style": "Bold, wide, and uppercase for headings. High-tech and impactful."
+        },
+        "secondary": {
+          "name": "Clean Sans-Serif",
+          "style": "Used for body copy and UI labels. Highly legible."
+        },
+        "display": {
+          "name": "Digital/Monospace",
+          "style": "Used for numerical data like timers and prices to evoke a digital, technical feel."
+        }
+      },
+      "fontStyles": {
+        "heroTitle": {
+          "fontFamily": "primary",
+          "fontSize": "4.5rem",
+          "fontWeight": 800,
+          "textTransform": "uppercase"
+        },
+        "heroSubtitle": {
+          "fontFamily": "primary",
+          "fontSize": "3rem",
+          "fontWeight": 700,
+          "color": "#ffffff"
+        },
+        "bodyLarge": {
+          "fontFamily": "secondary",
+          "fontSize": "1.25rem",
+          "fontWeight": 400
+        },
+        "body": {
+          "fontFamily": "secondary",
+          "fontSize": "1rem",
+          "fontWeight": 400
+        },
+        "label": {
+          "fontFamily": "secondary",
+          "fontSize": "0.875rem",
+          "fontWeight": 500,
+          "textTransform": "uppercase"
+        },
+        "digitalText": {
+          "fontFamily": "display",
+          "fontSize": "2rem",
+          "fontWeight": 700,
+          "color": "#00f0ff"
+        }
+      }
+    },
+    "layout": {
+      "container": {
+        "maxWidth": "1440px",
+        "padding": "1rem 2rem"
+      },
+      "spacingUnit": "8px",
+      "grid": "Two-column layout for the main hero content, with a central character illustration."
+    },
+    "components": {
+      "buttons": {
+        "navigation": {
+          "background": "rgba(16, 8, 33, 0.8)",
+          "border": "1px solid #7e2cff",
+          "borderRadius": "8px",
+          "padding": "0.5rem 1.5rem",
+          "glow": "box-shadow: 0 0 8px rgba(126, 44, 255, 0.5);",
+          "activeState": {
+            "borderColor": "#00f0ff",
+            "color": "#00f0ff",
+            "glow": "box-shadow: 0 0 10px rgba(0, 240, 255, 0.6);"
+          }
+        },
+        "primaryCTA": {
+          "shape": "Custom, hexagonal/angled",
+          "background": "rgba(16, 8, 33, 0.7)",
+          "border": "2px solid",
+          "borderImage": "linear-gradient(90deg, #7e2cff, #00f0ff) 1",
+          "padding": "1rem 2rem",
+          "glow": "box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);",
+          "hoverState": {
+            "transform": "scale(1.03)"
+          }
+        },
+        "secondary": {
+          "shape": "Pill",
+          "background": "linear-gradient(90deg, rgba(126, 44, 255, 0.5), rgba(0, 240, 255, 0.5))",
+          "border": "1px solid #a855f7",
+          "padding": "0.75rem 1rem",
+          "glow": "box-shadow: 0 0 8px rgba(168, 85, 247, 0.4);",
+          "hoverState": {
+            "filter": "brightness(1.2)"
+          }
+        }
+      },
+      "cards": {
+        "presale": {
+          "background": "rgba(16, 8, 33, 0.6)",
+          "border": "2px solid",
+          "borderImage": "linear-gradient(to top, #7e2cff, #00f0ff) 1",
+          "borderRadius": "12px",
+          "padding": "1.5rem",
+          "backdropFilter": "blur(10px)"
+        },
+        "infoBox": {
+          "background": "rgba(16, 8, 33, 0.5)",
+          "borderLeft": "3px solid #7e2cff",
+          "padding": "1rem"
+        }
+      },
+      "timers": {
+        "digitContainer": {
+          "background": "rgba(10, 5, 20, 0.5)",
+          "border": "1px solid #a855f7",
+          "borderRadius": "4px",
+          "padding": "0.5rem"
+        }
+      },
+      "progressBar": {
+        "track": {
+          "background": "rgba(10, 5, 20, 0.8)",
+          "borderRadius": "100px",
+          "height": "12px"
+        },
+        "fill": {
+          "background": "linear-gradient(90deg, #7e2cff, #00f0ff)",
+          "borderRadius": "100px"
+        }
+      }
+    },
+    "effects": {
+      "neonGlow": "text-shadow: 0 0 8px #00f0ff;",
+      "borderGlow": "box-shadow: 0 0 12px var(--glow-color);",
+      "glitch": "Small, scattered pixel artifacts near key elements like titles.",
+      "scanlines": "Subtle horizontal lines in the background to add a retro-tech texture."
+    },
+    "heroSectionContent": {
+      "navigation": {
+        "logo": "$REKT",
+        "links": ["Hero", "Tokenomics", "Loss Claim", "Staking", "Leaderboard", "Team", "Roadmap", "Whitepaper", "Audit", "FAQ"],
+        "activeLink": "Hero"
+      },
+      "mainContent": {
+        "leftColumn": {
+          "logoText": "$REKT",
+          "title": "Only losers win",
+          "subtitle": "Embrace the crash",
+          "howToBuy": {
+            "title": "How to Buy:",
+            "steps": [
+              "1. Connect your wallet",
+              "2. Choose payment method",
+              "3. Enter amount",
+              "4. Confirm transaction"
+            ]
+          }
+        },
+        "rightColumn": {
+          "cardTitle": "Phase 1 Presale",
+          "priceInfo": {
+            "current": { "label": "Current Price", "value": "$0.001" },
+            "next": { "label": "Next Price", "value": "$0.002" }
+          },
+          "priceIncreaseNote": "Price increase when goal reached",
+          "countdown": {
+            "days": "15",
+            "hours": "10",
+            "minutes": "15",
+            "seconds": "15"
+          },
+          "progress": {
+            "percentage": "67.5%",
+            "amountRaised": "$2,024,000 raised"
+          },
+          "paymentButtons": ["BUY WITH SOL", "BUY WITH USDT", "BUY WITH USDC"],
+          "inputField": {
+            "placeholder": "Enter amount",
+            "maxButton": "MAX"
+          },
+          "connectButton": "Connect Wallet",
+          "primaryActionButton": "BUY WITH SOL"
+        }
+      },
+      "bottomBanner": {
+        "text": "As seen on"
+      }
+    }
+  }
