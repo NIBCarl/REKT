@@ -500,7 +500,7 @@ function PresaleCard() {
 // Hero Section Component
 function HeroSection() {
   return (
-    <section className="min-h-screen pt-20 pb-10 relative overflow-hidden">
+    <section className="h-[110vh] pt-20 pb-10 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <Image
@@ -523,7 +523,7 @@ function HeroSection() {
       </div>
 
       {/* Social Media Overlay */}
-      <div className="flex items-center space-x-6 absolute top-28 left-1/2 -translate-x-1/2 z-[999]">
+      <div className="flex items-center justify-center space-x-6 absolute top-23   left-1/2 -translate-x-1/2 z-[999] w-full">
         {/* Telegram */}
         <a
           href="https://t.me/REKT"
@@ -574,7 +574,7 @@ function HeroSection() {
       </div>
       
       <div className="container relative z-10">
-        <div className="grid lg:grid-cols-3 gap-8 items-center min-h-[80vh]">
+        <div className="grid lg:grid-cols-3 gap-8 items-center h-[60vh]">
           {/* Left Column - Main Content with Mascot */}
           <div className="space-y-6 text-center lg:text-left">
             {/* Mascot and Title */}
@@ -666,23 +666,83 @@ function HeroSection() {
           </div>
         </div>
         
-        {/* Bottom Banner */}
-        <div className="text-center mt-16 pt-8 border-t border-purple-500/30">
+        <div className="container relative z-10">
+        </div>
+      </div>
+      
+      {/* Floating Decorative Elements */}
+      <div className="absolute top-10 left-10 animate-float hover:scale-125 hover:rotate-45 transition-all duration-300 cursor-pointer">
+        <Image
+          src="/assets/rekt_confetti_2-3583c4.png"
+          alt="Confetti"
+          width={40}
+          height={40}
+          className="opacity-60"
+        />
+      </div>
+      <div className="absolute top-1/3 right-20 animate-float hover:scale-125 hover:-rotate-12 transition-all duration-300 cursor-pointer" style={{ animationDelay: '1s' }}>
+        <Image
+          src="/assets/rekt_confetti_3-3583c4.png"
+          alt="Confetti"
+          width={30}
+          height={30}
+          className="opacity-60"
+        />
+      </div>
+      <div className="absolute bottom-1/4 left-1/4 animate-float hover:scale-125 hover:rotate-90 transition-all duration-300 cursor-pointer" style={{ animationDelay: '2s' }}>
+        <Image
+          src="/assets/rekt_rocket_1.png"
+          alt="Rocket"
+          width={50}
+          height={50}
+          className="opacity-40"
+        />
+      </div>
+      <div className="absolute top-1/2 right-10 animate-float hover:scale-125 hover:rotate-180 transition-all duration-300 cursor-pointer" style={{ animationDelay: '0.5s' }}>
+        <Image
+          src="/assets/rekt_coindust.png"
+          alt="Coin Dust"
+          width={35}
+          height={35}
+          className="opacity-50"
+        />
+      </div>
+      
+      {/* Additional floating mascot */}
+      <div className="absolute bottom-20 right-1/3 animate-float hover:scale-125 hover:brightness-125 transition-all duration-300 cursor-pointer" style={{ animationDelay: '1.5s' }}>
+        <Image
+          src="/assets/mascot_donut.gif"
+          alt="Donut Mascot"
+          width={80}
+          height={80}
+          className="opacity-60"
+        />
+      </div>
+      
+    </section>
+  )
+}
+
+// As Seen On Section Component
+function AsSeenOnSection() {
+  return (
+    <section className="py-12 bg-gradient-to-b from-transparent to-purple-900/10">
+      <div className="container">
+        <div className="text-center mb-2">
           {/* Decorative SVG above "As seen on" */}
-          <div className="flex justify-center mb-4">
+          <div className="flex justify-center mb-1">
             <div className="relative">
               <Image
                 src="/assets/hero-section/Group 2649.svg"
                 alt="Decorative Element"
-                width={300}
+                width={250}
                 height={40}
                 className="opacity-80"
-                style={{ transform: 'translateX(-10px) translateY(5px)' }}
+                style={{ transform: 'translateX(-19px) translateY(-175px)' }}
               />
             </div>
           </div>
-          <p className="text-gray-400 text-lg mb-6">As seen on</p>
-          
+          <p className="text-white-400 text-2xl mb-1 font-display">As seen on</p>
         </div>
         
         {/* Purple banner background - Full width */}
@@ -795,60 +855,7 @@ function HeroSection() {
             </div>
           </div>
         </div>
-        
-        <div className="container relative z-10">
-        </div>
       </div>
-      
-      {/* Floating Decorative Elements */}
-      <div className="absolute top-10 left-10 animate-float hover:scale-125 hover:rotate-45 transition-all duration-300 cursor-pointer">
-        <Image
-          src="/assets/rekt_confetti_2-3583c4.png"
-          alt="Confetti"
-          width={40}
-          height={40}
-          className="opacity-60"
-        />
-      </div>
-      <div className="absolute top-1/3 right-20 animate-float hover:scale-125 hover:-rotate-12 transition-all duration-300 cursor-pointer" style={{ animationDelay: '1s' }}>
-        <Image
-          src="/assets/rekt_confetti_3-3583c4.png"
-          alt="Confetti"
-          width={30}
-          height={30}
-          className="opacity-60"
-        />
-      </div>
-      <div className="absolute bottom-1/4 left-1/4 animate-float hover:scale-125 hover:rotate-90 transition-all duration-300 cursor-pointer" style={{ animationDelay: '2s' }}>
-        <Image
-          src="/assets/rekt_rocket_1.png"
-          alt="Rocket"
-          width={50}
-          height={50}
-          className="opacity-40"
-        />
-      </div>
-      <div className="absolute top-1/2 right-10 animate-float hover:scale-125 hover:rotate-180 transition-all duration-300 cursor-pointer" style={{ animationDelay: '0.5s' }}>
-        <Image
-          src="/assets/rekt_coindust.png"
-          alt="Coin Dust"
-          width={35}
-          height={35}
-          className="opacity-50"
-        />
-      </div>
-      
-      {/* Additional floating mascot */}
-      <div className="absolute bottom-20 right-1/3 animate-float hover:scale-125 hover:brightness-125 transition-all duration-300 cursor-pointer" style={{ animationDelay: '1.5s' }}>
-        <Image
-          src="/assets/mascot_donut.gif"
-          alt="Donut Mascot"
-          width={80}
-          height={80}
-          className="opacity-60"
-        />
-      </div>
-      
     </section>
   )
 }
@@ -1280,6 +1287,7 @@ export default function HomePage() {
     <main className="min-h-screen">
       <Navigation />
       <HeroSection />
+      <AsSeenOnSection />
       <TokenomicsSection />
       <LeaderboardSection />
       <TeamSection />
