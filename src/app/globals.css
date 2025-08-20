@@ -193,6 +193,20 @@ body {
   }
 }
 
+/* Scrolling banner animation - True infinite loop */
+@keyframes scroll-infinite {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll-infinite {
+  animation: scroll-infinite 20s linear infinite;
+}
+
 .hero-subtitle {
   font-family: 'Orbitron', monospace;
   font-size: 3rem;
