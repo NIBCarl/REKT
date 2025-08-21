@@ -1,0 +1,162 @@
+{
+    "designSystemName": "Neon_Team_Profile_UI",
+    "description": "A futuristic and sleek UI design system for showcasing team members or 'legends'. The design is characterized by a dark theme, a structured grid layout, and vibrant neon blue glowing effects that create a high-tech, digital aesthetic.",
+    "colorPalette": {
+      "primary": {
+        "name": "primary-background",
+        "hex": "#120c24",
+        "description": "Very dark navy/purple, used for the main background."
+      },
+      "accent-glow": {
+        "name": "bright-cyan-glow",
+        "hex": "#00d1ff",
+        "description": "A vivid, glowing cyan used for borders, frames, and accents."
+      },
+      "text-primary": {
+        "name": "primary-text",
+        "hex": "#ffffff",
+        "description": "Pure white for main titles and names."
+      },
+      "text-secondary": {
+        "name": "secondary-text",
+        "hex": "#d3d3d3",
+        "description": "A light grey for subtitles and body descriptions."
+      },
+      "text-accent": {
+        "name": "accent-text-cyan",
+        "hex": "#00ffff",
+        "description": "Bright cyan for role titles to make them stand out."
+      },
+      "avatar-background": {
+        "name": "avatar-bg-gradient-start",
+        "hex": "#2a1a45",
+        "description": "Darker purple for the top of the avatar background gradient."
+      },
+      "avatar-background-end": {
+        "name": "avatar-bg-gradient-end",
+        "hex": "#1a0f2b",
+        "description": "Darker base purple for the bottom of the avatar background gradient."
+      }
+    },
+    "typography": {
+      "fontFamily": "Sans-Serif, preferably a modern, geometric font like 'Roboto' or 'Techno'",
+      "styles": {
+        "main-title": {
+          "name": "section-main-title",
+          "fontSize": "36px",
+          "fontWeight": "700",
+          "color": "primary-text"
+        },
+        "subtitle": {
+          "name": "section-subtitle",
+          "fontSize": "18px",
+          "fontWeight": "400",
+          "color": "secondary-text",
+          "lineHeight": "1.5"
+        },
+        "card-title": {
+          "name": "profile-name",
+          "fontSize": "22px",
+          "fontWeight": "600",
+          "color": "primary-text"
+        },
+        "card-subtitle": {
+          "name": "profile-role",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "color": "accent-text-cyan"
+        },
+        "card-body": {
+          "name": "profile-description",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "color": "secondary-text",
+          "lineHeight": "1.6"
+        }
+      }
+    },
+    "layout": {
+      "gridSystem": "A responsive grid, primarily a 3-column layout for the profile cards on wider screens.",
+      "spacing": {
+        "baseUnit": "8px",
+        "small": "8px",
+        "medium": "16px",
+        "large": "24px",
+        "xlarge": "48px"
+      },
+      "containerPadding": "xlarge"
+    },
+    "components": {
+      "section-header": {
+        "name": "main-header-block",
+        "description": "The top section containing the main title and subtitle.",
+        "style": {
+          "textAlign": "center",
+          "marginBottom": "xlarge"
+        }
+      },
+      "decorative-frame": {
+        "name": "header-border-accent",
+        "description": "The futuristic, glowing line-art frame at the top of the section.",
+        "style": {
+          "borderColor": "bright-cyan-glow",
+          "borderStyle": "solid",
+          "borderWidth": "2px",
+          "boxShadow": "0 0 10px var(--bright-cyan-glow)"
+        }
+      },
+      "team-grid": {
+        "name": "profile-card-grid",
+        "description": "The main container that holds and aligns the grid of profile cards.",
+        "style": {
+          "display": "grid",
+          "gap": "xlarge"
+        }
+      },
+      "profile-card": {
+        "name": "team-member-card",
+        "description": "An individual card for a team member, containing their avatar and information.",
+        "style": {
+          "position": "relative",
+          "textAlign": "center",
+          "padding": "large"
+        }
+      },
+      "card-frame": {
+        "name": "profile-card-border",
+        "description": "The glowing, rectangular border for each profile card.",
+        "style": {
+          "border": "2px solid",
+          "borderColor": "bright-cyan-glow",
+          "borderRadius": "16px",
+          "boxShadow": "0 0 15px rgba(0, 209, 255, 0.3), inset 0 0 15px rgba(0, 209, 255, 0.2)"
+        }
+      },
+      "avatar": {
+        "name": "profile-avatar-display",
+        "description": "The circular element that contains the character's image.",
+        "style": {
+          "width": "100px",
+          "height": "100px",
+          "borderRadius": "50%",
+          "border": "3px solid",
+          "borderColor": "bright-cyan-glow",
+          "background": "linear-gradient(to bottom, var(--avatar-bg-gradient-start), var(--avatar-bg-gradient-end))",
+          "boxShadow": "0 0 15px var(--bright-cyan-glow)",
+          "margin": "-74px auto 16px auto", 
+          "position": "relative",
+          "overflow": "hidden"
+        }
+      },
+      "grid-connectors": {
+        "name": "network-connector-lines",
+        "description": "The decorative, dotted lines that connect the profile cards, creating a networked feel.",
+        "style": {
+          "position": "absolute",
+          "borderColor": "bright-cyan-glow",
+          "borderStyle": "dotted",
+          "opacity": "0.5"
+        }
+      }
+    }
+  }

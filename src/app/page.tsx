@@ -1,8 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Fragment } from 'react'
 import Image from 'next/image'
 import RektonomicsSection from '../components/Rektonomics/RektonomicsSection'
+import LeaderboardSection from '../components/Leaderboard/LeaderboardSection'
+import TeamSection from '@/components/Team/TeamSection'
 
 // Navigation Component
 function Navigation() {
@@ -259,25 +261,37 @@ function CountdownTimer() {
   }, [])
 
   return (
-    <div className="flex space-x-4 justify-center">
-      {Object.entries(timeLeft).map(([unit, value]) => (
-        <div key={unit} className="text-center relative">
-          <div className="relative">
-            <Image
-              src="/assets/hero-section/box for the days.png"
-              alt="Timer Box"
-              width={60}
-              height={60}
-              className="w-16 h-16 object-cover"
-            />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-cyan-400 font-display text-xl font-bold">
-                {value.toString().padStart(2, '0')}
+    <div className="flex items-center justify-center space-x-2">
+      {Object.entries(timeLeft).map(([unit, value], idx, arr) => (
+        <Fragment key={unit}>
+          <div className="text-center relative">
+            <div className="relative">
+              <Image
+                src="/assets/hero-section/box for the days.png"
+                alt="Timer Box"
+                width={60}
+                height={60}
+                className="w-16 h-16 object-cover"
+              />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-cyan-400 font-display text-xl font-bold">
+                  {value.toString().padStart(2, '0')}
+                </div>
               </div>
             </div>
+            <div className="text-xs text-gray-400 mt-1 uppercase">{unit}</div>
           </div>
-          <div className="text-xs text-gray-400 mt-1 uppercase">{unit}</div>
-        </div>
+          {idx < arr.length - 1 && (
+            <Image
+              src="/assets/hero-section/colon.png"
+              alt="Colon Separator"
+              width={12}
+              height={40}
+              className="w-3 h-10 object-contain"
+              aria-hidden="true"
+            />
+          )}
+        </Fragment>
       ))}
     </div>
   )
@@ -851,75 +865,7 @@ function AsSeenOnSection() {
   )
 }
 
-
-// Team Section Component
-function TeamSection() {
-  const teamMembers = [
-    { name: "Sadboi", role: "Founder & Vision Lead" },
-    { name: "DownBad Dave", role: "Community Manager & Chief Meme Officer" },
-    { name: "Liquidation Lisa", role: "Tokenomics & Staking Specialist" },
-    { name: "FOMO Fred", role: "Marketing & Hype Generator" },
-    { name: "Paperhand Pete", role: "Risk Management & Anti-Abuse Lead" },
-    { name: "REKT Roxy", role: "Lead Developer & Security Expert" }
-  ]
-
-  return (
-    <section className="py-20 relative">
-      {/* Background with desktop base asset */}
-      <div className="absolute inset-0 opacity-5">
-        <Image
-          src="/assets/desktop-base-19acab.png"
-          alt="Desktop Background"
-          fill
-          className="object-cover"
-        />
-      </div>
-      
-      {/* Additional floating rockets */}
-      <div className="absolute top-10 right-10 animate-float" style={{ animationDelay: '3s' }}>
-        <Image
-          src="/assets/rekt_rocket_1.png"
-          alt="Rocket"
-          width={60}
-          height={60}
-          className="opacity-30"
-        />
-      </div>
-      
-      <div className="container relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-primary font-bold mb-4 neon-glow-cyan">
-            Meet the $REKT Legends
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            The degenerates who turned pain into profit. Each one battle-tested by the market, 
-            forged in the fires of liquidation.
-          </p>
-        </div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {teamMembers.map((member, index) => (
-            <div key={index} className="card-default text-center hover:border-cyan-500 hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/30 transition-all duration-300 hover:-translate-y-2">
-              <div className="w-20 h-20 bg-gradient-to-br from-purple-600 to-cyan-600 rounded-full mx-auto mb-4 flex items-center justify-center relative">
-                <div className="absolute inset-0 bg-purple-900/50 rounded-full flex items-center justify-center">
-                  <span className="text-lg font-bold text-white">
-                    {member.name.split(' ').map(n => n[0]).join('')}
-                  </span>
-                </div>
-              </div>
-              <h3 className="text-xl font-primary font-bold mb-2 text-cyan-400">
-                {member.name}
-              </h3>
-              <p className="text-gray-300">
-                {member.role}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
+// Team Section moved to modular component in `src/components/Team/TeamSection.tsx`
 
 // FAQ Section Component
 function FAQSection() {
@@ -1073,77 +1019,6 @@ function RoadmapSection() {
               </ul>
             </div>
           ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-// Leaderboard Section Component
-function LeaderboardSection() {
-  const leaderboard = [
-    { rank: 1, name: "RektKing2024", losses: "$127,840", rektScore: "9,847" },
-    { rank: 2, name: "LiquidationLord", losses: "$89,230", rektScore: "8,923" },
-    { rank: 3, name: "DownBadDave", losses: "$76,450", rektScore: "7,645" },
-    { rank: 4, name: "PaperhándPete", losses: "$65,890", rektScore: "6,589" },
-    { rank: 5, name: "FOMOFred", losses: "$54,320", rektScore: "5,432" }
-  ]
-
-  return (
-    <section className="py-20 relative">
-      {/* Background with rectangle asset */}
-      <div className="absolute inset-0 opacity-5">
-        <Image
-          src="/assets/rectangle-19.png"
-          alt="Background"
-          fill
-          className="object-cover"
-        />
-      </div>
-      <div className="container relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-primary font-bold mb-4 neon-glow-cyan">
-            Loser Leaderboard
-          </h2>
-          <p className="text-xl text-gray-300">
-            The biggest losers are the biggest winners
-          </p>
-        </div>
-        
-        <div className="max-w-4xl mx-auto">
-          <div className="card-default">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b border-purple-500/30">
-                    <th className="text-left py-4 px-4 text-cyan-400 font-primary">Rank</th>
-                    <th className="text-left py-4 px-4 text-cyan-400 font-primary">Name</th>
-                    <th className="text-left py-4 px-4 text-cyan-400 font-primary">Total Losses</th>
-                    <th className="text-left py-4 px-4 text-cyan-400 font-primary">REKT Score</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {leaderboard.map((entry) => (
-                    <tr key={entry.rank} className="border-b border-purple-500/10 hover:bg-purple-900/20 transition-colors">
-                      <td className="py-4 px-4">
-                        <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${
-                          entry.rank === 1 ? 'bg-yellow-500 text-black' :
-                          entry.rank === 2 ? 'bg-gray-400 text-black' :
-                          entry.rank === 3 ? 'bg-orange-600 text-white' :
-                          'bg-purple-600 text-white'
-                        }`}>
-                          {entry.rank}
-                        </div>
-                      </td>
-                      <td className="py-4 px-4 text-white font-medium">{entry.name}</td>
-                      <td className="py-4 px-4 text-red-400 font-display font-bold">{entry.losses}</td>
-                      <td className="py-4 px-4 text-green-400 font-display font-bold">{entry.rektScore}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
         </div>
       </div>
     </section>

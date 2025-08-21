@@ -16,6 +16,11 @@
   --primary-vibrant-purple: #7e2cff;
   --primary-light-purple: #a855f7;
   
+  /* Team Section Tokens */
+  --bright-cyan-glow: #00d1ff;
+  --avatar-bg-gradient-start: #2a1a45;
+  --avatar-bg-gradient-end: #1a0f2b;
+  
   /* Secondary Colors */
   --secondary-lime-green: #32cd32;
   --secondary-vibrant-teal: #00f5d4;
@@ -86,6 +91,11 @@ body {
 
 .neon-glow-pink {
   text-shadow: 0 0 8px var(--primary-hot-pink);
+}
+
+/* Cyan text glow helper */
+.neon-glow-cyan {
+  text-shadow: 0 0 8px var(--bright-cyan-glow);
 }
 
 /* Border Glow Effects */
