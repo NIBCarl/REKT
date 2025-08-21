@@ -1,0 +1,132 @@
+/**
+ * MascotCenter Component Styles
+ * Implements the REKT mascot GIF display with proper sizing and effects
+ */
+
+.mascotCenter {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+  position: relative;
+}
+
+.mascotGif {
+  /* Base sizing - responsive scaling */
+  width: 200px;
+  height: auto;
+  max-width: 100%;
+  
+  /* Maintain aspect ratio */
+  object-fit: contain;
+  
+  /* Enhanced drop shadow effects for visual depth */
+  filter: 
+    drop-shadow(0 8px 16px rgba(138, 43, 226, 0.4))
+    drop-shadow(0 4px 8px rgba(0, 255, 255, 0.3))
+    drop-shadow(0 0 20px rgba(255, 0, 127, 0.2));
+  
+  /* Smooth transitions for responsive changes */
+  transition: all 0.4s ease-in-out;
+  
+  /* Ensure crisp rendering */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  
+  /* Subtle floating animation */
+  animation: mascotFloat 4s ease-in-out infinite alternate;
+}
+
+.mascotGif:hover {
+  /* Enhanced hover effect with multiple glows */
+  filter: 
+    drop-shadow(0 15px 30px rgba(138, 43, 226, 0.6))
+    drop-shadow(0 8px 16px rgba(0, 255, 255, 0.5))
+    drop-shadow(0 0 30px rgba(255, 0, 127, 0.4))
+    drop-shadow(0 0 40px rgba(255, 255, 255, 0.2));
+  transform: scale(1.05) translateY(-5px);
+  animation-play-state: paused;
+}
+
+/* Responsive scaling across screen sizes */
+@media (max-width: 1200px) {
+  .mascotGif {
+    width: 180px;
+  }
+}
+
+@media (max-width: 992px) {
+  .mascotGif {
+    width: 160px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mascotGif {
+    width: 140px;
+  }
+}
+
+@media (max-width: 576px) {
+  .mascotGif {
+    width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mascotGif {
+    width: 100px;
+  }
+}
+
+/* Loading state */
+.mascotGif[data-loading="true"] {
+  opacity: 0.7;
+  filter: blur(1px);
+}
+
+/* Error state fallback */
+.errorFallback {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(42, 26, 69, 0.5);
+  border: 2px dashed #8a2be2;
+  border-radius: 12px;
+  color: #a9a9a9;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Keyframe animations */
+@keyframes mascotFloat {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+    filter: 
+      drop-shadow(0 8px 16px rgba(138, 43, 226, 0.4))
+      drop-shadow(0 4px 8px rgba(0, 255, 255, 0.3))
+      drop-shadow(0 0 20px rgba(255, 0, 127, 0.2));
+  }
+  100% {
+    transform: translateY(-8px) rotate(1deg);
+    filter: 
+      drop-shadow(0 12px 20px rgba(138, 43, 226, 0.5))
+      drop-shadow(0 6px 12px rgba(0, 255, 255, 0.4))
+      drop-shadow(0 0 25px rgba(255, 0, 127, 0.3));
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .mascotGif {
+    animation: none;
+    transition: none;
+  }
+  
+  .mascotGif:hover {
+    transform: none;
+    animation: none;
+  }
+}

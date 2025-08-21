@@ -1,0 +1,215 @@
+/**
+ * DistributionBreakdown Component Styles
+ * Clean text-based layout matching the design
+ */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.distributionItem {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  transition: all 0.3s ease;
+  margin-bottom: 16px;
+}
+
+.lineContainer {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.svgContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.textOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 8px;
+  z-index: 2;
+}
+
+.svgAsset {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.2));
+}
+
+.distributionItem:hover .svgAsset {
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+  transform: scale(1.02);
+}
+
+.colorLine {
+  width: 100%;
+  height: 3px;
+  border-radius: 2px;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+.distributionItem:hover .colorLine {
+  opacity: 1;
+  height: 4px;
+  box-shadow: 0 0 8px currentColor;
+}
+
+.percentageLabel {
+  font-family: 'Poppins', 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 
+    0 0 8px rgba(0, 0, 0, 0.8),
+    0 0 4px rgba(0, 0, 0, 1);
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  min-width: 35px;
+  align-self: flex-start;
+  margin-bottom: 2px;
+}
+
+.itemName {
+  font-family: 'Poppins', 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap;
+  letter-spacing: 0.8px;
+  transition: all 0.3s ease;
+  text-shadow: 
+    0 0 8px rgba(0, 0, 0, 0.8),
+    0 0 4px rgba(0, 0, 0, 1);
+  position: absolute;
+  bottom: 8px;
+  left: 120px;
+}
+
+.distributionItem:hover .percentageLabel {
+  color: #00ffff;
+  text-shadow: 
+    0 0 12px rgba(255, 255, 255, 0.4),
+    0 0 20px rgba(0, 255, 255, 0.6);
+  transform: scale(1.05);
+}
+
+.distributionItem:hover .itemName {
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    gap: 12px;
+  }
+  
+  .distributionItem {
+    min-height: 36px;
+    gap: 8px;
+  }
+  
+  .svgContainer {
+    height: 28px;
+  }
+  
+  .svgAsset {
+    max-width: 150px;
+  }
+  
+  .percentageLabel {
+    font-size: 14px;
+  }
+  
+  .itemName {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    gap: 10px;
+  }
+  
+  .distributionItem {
+    min-height: 32px;
+    gap: 6px;
+  }
+  
+  .svgContainer {
+    height: 24px;
+  }
+  
+  .svgAsset {
+    max-width: 120px;
+  }
+  
+  .percentageLabel {
+    font-size: 13px;
+  }
+  
+  .itemName {
+    font-size: 11px;
+  }
+}
+
+/* Accessibility and motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .distributionItem,
+  .percentageLabel,
+  .itemName {
+    transition: none;
+  }
+  
+  .distributionItem:hover {
+    transform: none;
+  }
+  
+  .distributionItem:hover .percentageLabel {
+    transform: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .distributionItem {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #ffffff;
+  }
+  
+  .percentageLabel {
+    color: #ffffff;
+    text-shadow: none;
+  }
+  
+  .itemName {
+    color: #cccccc;
+  }
+}

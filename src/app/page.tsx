@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import RektonomicsSection from '../components/Rektonomics/RektonomicsSection'
 
 // Navigation Component
 function Navigation() {
@@ -708,16 +709,6 @@ function HeroSection() {
         />
       </div>
       
-      {/* Additional floating mascot */}
-      <div className="absolute bottom-20 right-1/3 animate-float hover:scale-125 hover:brightness-125 transition-all duration-300 cursor-pointer" style={{ animationDelay: '1.5s' }}>
-        <Image
-          src="/assets/mascot_donut.gif"
-          alt="Donut Mascot"
-          width={80}
-          height={80}
-          className="opacity-60"
-        />
-      </div>
       
     </section>
   )
@@ -730,7 +721,7 @@ function AsSeenOnSection() {
       <div className="container">
         <div className="text-center mb-2">
           {/* Decorative SVG above "As seen on" */}
-          <div className="flex justify-center mb-1">
+          <div className="flex justify-center mb-">
             <div className="relative">
               <Image
                 src="/assets/hero-section/Group 2649.svg"
@@ -860,94 +851,6 @@ function AsSeenOnSection() {
   )
 }
 
-// Tokenomics Section Component
-function TokenomicsSection() {
-  const distribution = [
-    { name: "Presale", percentage: 50, color: "bg-purple-500" },
-    { name: "Treasury", percentage: 20, color: "bg-cyan-500" },
-    { name: "Liquidity Pool", percentage: 15, color: "bg-pink-500" },
-    { name: "Staking Pool", percentage: 10, color: "bg-green-500" },
-    { name: "Community Fund", percentage: 5, color: "bg-yellow-500" }
-  ]
-
-  const taxBreakdown = [
-    { name: "Staking Pool", percentage: 50 },
-    { name: "Treasury", percentage: 25 },
-    { name: "Burn", percentage: 25 }
-  ]
-
-  return (
-    <section className="py-20 bg-gradient-to-b from-transparent to-purple-900/10 relative">
-      {/* Background tokenomics image */}
-      <div className="absolute inset-0 opacity-10">
-        <Image
-          src="/assets/tokenomics-3.png"
-          alt="Tokenomics Background"
-          fill
-          className="object-cover"
-        />
-      </div>
-      <div className="container relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-primary font-bold mb-4 neon-glow-purple">
-            Rektomics
-          </h2>
-          <p className="text-xl text-gray-300">
-            Fair distribution for maximum chaos
-          </p>
-        </div>
-        
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Token Distribution */}
-          <div className="card-default hover:scale-105 hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300 hover:border-cyan-400">
-            <h3 className="text-2xl font-primary font-bold mb-6 text-center text-cyan-400">
-              Token Distribution
-            </h3>
-            <div className="text-center mb-6">
-              <div className="digital-text">1,000,000,000 $REKT</div>
-              <p className="text-gray-400 mt-2">Total Supply</p>
-            </div>
-            
-            <div className="space-y-4">
-              {distribution.map((item, index) => (
-                <div key={index} className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <div className={`w-4 h-4 rounded-full ${item.color}`}></div>
-                    <span className="text-white">{item.name}</span>
-                  </div>
-                  <span className="font-bold text-cyan-400">{item.percentage}%</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          {/* Tax Structure */}
-          <div className="card-default hover:scale-105 hover:shadow-xl hover:shadow-pink-500/30 transition-all duration-300 hover:border-pink-400">
-            <h3 className="text-2xl font-primary font-bold mb-6 text-center text-pink-400">
-              1% Tax on Every Buy/Sell
-            </h3>
-            
-            <div className="space-y-4 mb-6">
-              {taxBreakdown.map((item, index) => (
-                <div key={index} className="flex items-center justify-between">
-                  <span className="text-white">{item.name}</span>
-                  <span className="font-bold text-pink-400">{item.percentage}%</span>
-                </div>
-              ))}
-            </div>
-            
-            <div className="bg-black/30 p-4 rounded border border-purple-500/30">
-              <p className="text-sm text-gray-300">
-                Until 200M Burn cap reached. Once 200M $REKT have been burned, burning will stop permanently. 
-                50% will go to the treasury, and 50% will go to staking to encourage long-term growth.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
 
 // Team Section Component
 function TeamSection() {
@@ -1288,7 +1191,7 @@ export default function HomePage() {
       <Navigation />
       <HeroSection />
       <AsSeenOnSection />
-      <TokenomicsSection />
+      <RektonomicsSection />
       <LeaderboardSection />
       <TeamSection />
       <RoadmapSection />

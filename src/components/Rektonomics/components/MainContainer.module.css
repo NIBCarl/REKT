@@ -1,0 +1,304 @@
+/**
+ * MainContainer Component Styles
+ * Implements futuristic border styling with corner brackets and glow effects
+ */
+
+.mainContainer {
+  position: relative;
+  background: #1a0f2b; /* primary-background from rektonomics.json */
+  border-radius: 16px;
+  padding: 24px;
+  overflow: hidden;
+  
+  /* Glow effect */
+  box-shadow: 
+    0 0 15px rgba(138, 43, 226, 0.5), /* vibrant-purple glow */
+    0 0 30px rgba(138, 43, 226, 0.3),
+    inset 0 0 20px rgba(42, 26, 69, 0.8); /* container-background inner shadow */
+  
+  /* Border styling */
+  border: 2px solid #8a2be2; /* vibrant-purple */
+  
+  /* Responsive container sizing */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+  /* Smooth transitions */
+  transition: all 0.3s ease;
+}
+
+.mainContainer:hover {
+  /* Enhanced glow on hover */
+  box-shadow: 
+    0 0 20px rgba(138, 43, 226, 0.7),
+    0 0 40px rgba(138, 43, 226, 0.4),
+    inset 0 0 25px rgba(42, 26, 69, 0.9);
+}
+
+.borderOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 16px;
+  overflow: hidden;
+  opacity: 0.3; /* Subtle overlay effect */
+}
+
+.borderImage {
+  object-fit: cover;
+  object-position: center;
+  mix-blend-mode: overlay;
+}
+
+.cornerBrackets {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.bracket {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid;
+  
+  /* Animated glow effect */
+  animation: bracketGlow 2s ease-in-out infinite alternate;
+}
+
+.bracket::before,
+.bracket::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+}
+
+/* Top-left bracket */
+.topLeft {
+  top: 8px;
+  left: 8px;
+  border-color: #ff007f #ff007f transparent transparent; /* hot-pink */
+  color: #ff007f;
+  border-bottom: none;
+  border-left: none;
+}
+
+.topLeft::before {
+  top: -2px;
+  left: -2px;
+  width: 12px;
+  height: 2px;
+}
+
+.topLeft::after {
+  top: -2px;
+  left: -2px;
+  width: 2px;
+  height: 12px;
+}
+
+/* Top-right bracket */
+.topRight {
+  top: 8px;
+  right: 8px;
+  border-color: #00ffff #00ffff transparent transparent; /* bright-cyan */
+  color: #00ffff;
+  border-bottom: none;
+  border-left: none;
+  transform: rotate(90deg);
+}
+
+.topRight::before {
+  top: -2px;
+  left: -2px;
+  width: 12px;
+  height: 2px;
+}
+
+.topRight::after {
+  top: -2px;
+  left: -2px;
+  width: 2px;
+  height: 12px;
+}
+
+/* Bottom-left bracket */
+.bottomLeft {
+  bottom: 8px;
+  left: 8px;
+  border-color: #00ffff #00ffff transparent transparent; /* bright-cyan */
+  color: #00ffff;
+  border-bottom: none;
+  border-left: none;
+  transform: rotate(-90deg);
+}
+
+.bottomLeft::before {
+  top: -2px;
+  left: -2px;
+  width: 12px;
+  height: 2px;
+}
+
+.bottomLeft::after {
+  top: -2px;
+  left: -2px;
+  width: 2px;
+  height: 12px;
+}
+
+/* Bottom-right bracket */
+.bottomRight {
+  bottom: 8px;
+  right: 8px;
+  border-color: #ff007f #ff007f transparent transparent; /* hot-pink */
+  color: #ff007f;
+  border-bottom: none;
+  border-left: none;
+  transform: rotate(180deg);
+}
+
+.bottomRight::before {
+  top: -2px;
+  left: -2px;
+  width: 12px;
+  height: 2px;
+}
+
+.bottomRight::after {
+  top: -2px;
+  left: -2px;
+  width: 2px;
+  height: 12px;
+}
+
+.contentWrapper {
+  position: relative;
+  z-index: 3;
+}
+
+/* Bracket glow animation */
+@keyframes bracketGlow {
+  0% {
+    filter: drop-shadow(0 0 5px currentColor);
+    opacity: 0.8;
+  }
+  100% {
+    filter: drop-shadow(0 0 10px currentColor);
+    opacity: 1;
+  }
+}
+
+.mainContainer::before, .mainContainer::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-image: url('/assets/Rektonomics/upper left corner and lower right corner.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 5;
+}
+
+.mainContainer::before {
+  top: 0;
+  left: 0;
+}
+
+.mainContainer::after {
+  bottom: 0;
+  right: 0;
+  transform: scale(-1, -1);
+}
+
+.cornerBrackets::before, .cornerBrackets::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-image: url('/assets/Rektonomics/lower left and upper right.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 5;
+}
+
+.cornerBrackets::before {
+  background-position: right top;
+  top: 0;
+  right: 0;
+}
+
+.cornerBrackets::after {
+  background-position: left bottom;
+  bottom: -4px;
+  left: -137px;
+  transform: scale(-1, -1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .mainContainer {
+    padding: 16px;
+    margin: 0 8px;
+  }
+  
+  .bracket {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .topLeft,
+  .topRight {
+    top: 6px;
+  }
+  
+  .topLeft,
+  .bottomLeft {
+    left: 6px;
+  }
+  
+  .topRight,
+  .bottomRight {
+    right: 6px;
+  }
+  
+  .bottomLeft,
+  .bottomRight {
+    bottom: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainContainer {
+    padding: 12px;
+    margin: 0 4px;
+  }
+  
+  .bracket {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .topLeft::before,
+  .topRight::before,
+  .bottomLeft::before,
+  .bottomRight::before {
+    width: 8px;
+  }
+  
+  .topLeft::after,
+  .topRight::after,
+  .bottomLeft::after,
+  .bottomRight::after {
+    height: 8px;
+  }
+}
