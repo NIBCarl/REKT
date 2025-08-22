@@ -1,0 +1,338 @@
+.timeline {
+  position: relative;
+  /* unified spacing between the spine and PHASE badges */
+  --spine-gap: 32px;
+}
+
+/* Root class for the roadmap section to hold separator sizing variables */
+.sectionRoot {
+  /* separator line height and the gap between the two lines */
+  --sep-h: clamp(14px, 2.6vw, 40px);
+  --sep-gap: clamp(-30px, 0.1vw, -30px);
+  /* height of the middle filler line graphic */
+  --mid-h: clamp(22px, 2.6vw, 42px);
+  /* top-specific gap between the two lines (independent from bottom) */
+  --top-h: clamp(18px, 1.6vw, 28px);
+  --top-gap: clamp(0px, 0.2vw, 3px);
+  /* width of empty center space between left and right top segments */
+  --center-gap: clamp(160px, 20vw, 420px);
+  /* top-specific middle filler sizing and fine offset for perfect alignment */
+  /* top line asset ~36px tall, middle asset ~60px => 60/36 = 5/3 for matching scale */
+  --top-mid-h: calc(var(--top-h, 24px) * 5 / 3);
+  --top-mid-offset: -2px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background: var(--bright-cyan-glow);
+  box-shadow: 0 0 10px var(--bright-cyan-glow);
+  transform: translateX(-50%);
+}
+
+.phaseCard {
+  position: relative;
+  padding: 16px 18px 18px 18px;
+  background: transparent;
+}
+
+
+.left {
+  margin-right: auto;
+}
+
+.right {
+  margin-left: auto;
+}
+
+.phaseHeader {
+  position: relative;
+  height: clamp(72px, 8vw, 104px);
+  margin-bottom: 1rem;
+  overflow: visible;
+}
+
+.goalBox {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  /* top right bottom left; extra right/bottom for notch clearance, responsive */
+  padding: clamp(16px, 2.2vw, 24px) clamp(24px, 3vw, 36px) clamp(28px, 3.5vw, 44px) clamp(18px, 2.2vw, 28px);
+  min-height: 230px;
+  box-sizing: border-box;
+}
+
+.goalLabel {
+  position: relative;
+  z-index: 1;
+  color: #f7f2d7;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.goalList {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.headerTitle {
+  position: absolute;
+  left: 18px;
+  right: clamp(64px, 9vw, 140px);
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  font-size: clamp(11px, 1.05vw, 14px);
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  text-wrap: balance;
+  padding-right: 8px;
+  white-space: normal;
+  /* keep some room on the right for the notch/decor so text stays inside */
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+  z-index: 1;
+}
+
+.goalText {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #f7f2d7;
+  font-weight: 700;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.listItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+/* Ensure list text wraps within the Goalfair box */
+.listItem span {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.listItem::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--primary-bright-purple);
+  flex-shrink: 0;
+  margin-top: 0.4rem;
+  box-shadow: 0 0 6px rgba(138, 43, 226, 0.8);
+}
+
+.highlight {
+  border: 1px solid var(--bright-cyan-glow);
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+.phaseBadge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+}
+
+.badgeBox {
+  position: relative;
+  width: 190px;
+  height: 76px;
+}
+
+/* Arrow that sticks out from the PHASE badge bar */
+.badgeArrow {
+  position: absolute;
+  top: 50%;
+  width: 34px;
+  height: 34px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.arrowLeft {
+  left: -26px;
+  transform: translateY(-50%) scaleX(-1);
+}
+
+.arrowRight {
+  right: -26px;
+  transform: translateY(-50%);
+}
+
+.badgeText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #66fcff;
+  font-family: var(--font-display, inherit);
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+/* Place badge to the right side of the spine (for left cards) */
+.oppositeRight {
+  left: calc(50% + var(--spine-gap));
+  transform: translateY(-50%);
+}
+
+/* Place badge to the left side of the spine (for right cards) */
+.oppositeLeft {
+  left: calc(50% - var(--spine-gap) - 8px);
+  transform: translate(-100%, -50%);
+}
+
+/* Reverse order so the PHASE badge stays closer to the spine and mascot sits outer */
+.rowReverse {
+  flex-direction: row-reverse;
+}
+
+/* Bottom separator line image (full width, fixed height) */
+.bottomSeparator {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--sep-h, clamp(14px, 2.6vw, 40px));
+  pointer-events: none;
+}
+
+/* Upper line to create the double-line effect */
+.bottomSeparatorUpper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--sep-h, 32px) + max(var(--sep-gap, 12px), 0px));
+  height: var(--sep-h, clamp(14px, 2.6vw, 40px));
+  pointer-events: none;
+}
+
+/* Middle line that fills the gap between the two bottom lines */
+.bottomSeparatorMiddle {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(
+    var(--sep-h, 32px) + max(var(--sep-gap, 12px), 0px) / 2 - var(--mid-h, 28px) / 2
+  );
+  height: var(--mid-h, 28px);
+  pointer-events: none;
+}
+
+/* --- Top separators (mirror of bottom) --- */
+.topSeparator {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: var(--sep-h, clamp(14px, 2.6vw, 40px));
+  pointer-events: none;
+}
+
+.topSeparatorLower {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(var(--sep-h, 32px) + max(var(--sep-gap, 12px), 0px));
+  height: var(--sep-h, clamp(14px, 2.6vw, 40px));
+  pointer-events: none;
+}
+
+.topSeparatorMiddle {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(
+    var(--sep-h, 32px) + max(var(--top-gap, 12px), 0px) / 2 - var(--mid-h, 28px) / 2
+  );
+  height: var(--mid-h, 28px);
+  pointer-events: none;
+}
+
+/* Left/Right variants to create a center gap */
+.topSeparatorLeft {
+  position: absolute;
+  left: 0;
+  right: calc(50% + var(--center-gap, 240px) / 2);
+  top: 0;
+  height: var(--top-h, var(--sep-h, clamp(14px, 2.6vw, 40px)));
+  pointer-events: none;
+}
+
+.topSeparatorRight {
+  position: absolute;
+  left: calc(50% + var(--center-gap, 240px) / 2);
+  right: 0;
+  top: 0;
+  height: var(--top-h, var(--sep-h, clamp(14px, 2.6vw, 40px)));
+  pointer-events: none;
+}
+
+.topSeparatorLowerLeft {
+  position: absolute;
+  left: 0;
+  right: calc(50% + var(--center-gap, 240px) / 2);
+  top: calc(var(--top-h, 32px) + var(--top-gap, 12px));
+  height: var(--top-h, var(--sep-h, clamp(14px, 2.6vw, 40px)));
+  pointer-events: none;
+}
+
+.topSeparatorLowerRight {
+  position: absolute;
+  left: calc(50% + var(--center-gap, 240px) / 2);
+  right: 0;
+  top: calc(var(--top-h, 32px) + var(--top-gap, 12px));
+  height: var(--top-h, var(--sep-h, clamp(14px, 2.6vw, 40px)));
+  pointer-events: none;
+}
+
+.topSeparatorMiddleLeft {
+  position: absolute;
+  left: 0;
+  right: calc(50% + var(--center-gap, 240px) / 2);
+  top: calc(
+    var(--top-h, 32px)
+    + var(--top-gap, 12px) / 2
+    - var(--top-mid-h, var(--mid-h, 28px)) / 2
+    + var(--top-mid-offset, 0px)
+  );
+  height: var(--top-mid-h, var(--mid-h, 28px));
+  pointer-events: none;
+}
+
+.topSeparatorMiddleRight {
+  position: absolute;
+  left: calc(50% + var(--center-gap, 240px) / 2);
+  right: 0;
+  top: calc(
+    var(--top-h, 32px)
+    + var(--top-gap, 12px) / 2
+    - var(--top-mid-h, var(--mid-h, 28px)) / 2
+    + var(--top-mid-offset, 0px)
+  );
+  height: var(--top-mid-h, var(--mid-h, 28px));
+  pointer-events: none;
+}

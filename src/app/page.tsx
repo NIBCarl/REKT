@@ -5,6 +5,7 @@ import Image from 'next/image'
 import RektonomicsSection from '../components/Rektonomics/RektonomicsSection'
 import LeaderboardSection from '../components/Leaderboard/LeaderboardSection'
 import TeamSection from '@/components/Team/TeamSection'
+import RoadmapSection from '@/components/Roadmap/RoadmapSection'
 
 // Navigation Component
 function Navigation() {
@@ -22,7 +23,14 @@ function Navigation() {
 
   const handleLinkClick = (link: string) => {
     setActiveLink(link)
-    setIsMobileMenuOpen(false) // Close mobile menu when link is clicked
+    setIsMobileMenuOpen(false)
+    // Smooth scroll to section if it exists
+    const targetId = link.toLowerCase().replace(/\s+/g, '')
+    const section = document.getElementById(targetId)
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' })
+    }
+  
   }
 
   return (
@@ -945,9 +953,7 @@ function FAQSection() {
   )
 }
 
-// Roadmap Section Component
-function RoadmapSection() {
-  const phases = [
+  /* legacy roadmap data removed
     {
       title: "Launch & Foundation",
       goal: "Fair launch, instant staking, lean & meme-ready setup.",
@@ -1024,6 +1030,8 @@ function RoadmapSection() {
     </section>
   )
 }
+
+*/ 
 
 // Footer Component
 function Footer() {
