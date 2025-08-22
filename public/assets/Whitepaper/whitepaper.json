@@ -1,0 +1,219 @@
+{
+    "designSystemName": "Neon_Documentation_UI",
+    "description": "A visually engaging, futuristic UI design system for presenting documentation and security information. The style is defined by a dark, symmetrical layout, intricate neon frames, and distinct content cards that use glowing purple and cyan accents.",
+    "colorPalette": {
+      "primary": {
+        "name": "primary-background",
+        "hex": "#120c24",
+        "description": "Deep navy/purple, used for the main background."
+      },
+      "accent-glow-primary": {
+        "name": "vibrant-purple-glow",
+        "hex": "#8a2be2",
+        "description": "A bright, glowing purple used for the left card's border and accents."
+      },
+      "accent-glow-secondary": {
+        "name": "bright-cyan-glow",
+        "hex": "#00d1ff",
+        "description": "A vivid cyan used for the right card's border and highlighted text in the header."
+      },
+      "text-primary": {
+        "name": "primary-text",
+        "hex": "#ffffff",
+        "description": "White for main headings and card titles."
+      },
+      "text-secondary": {
+        "name": "secondary-text",
+        "hex": "#d3d3d3",
+        "description": "Light grey for subtitles and body text."
+      },
+      "button": {
+        "name": "button-gradient-start",
+        "hex": "#4d4dff"
+      },
+      "button-glow": {
+        "name": "button-glow-color",
+        "hex": "#6a0dad"
+      },
+      "icon-success": {
+        "name": "checkmark-green",
+        "hex": "#32cd32",
+        "description": "A bright green for the checkmark icons in the list."
+      }
+    },
+    "typography": {
+      "fontFamily": "Sans-Serif, a modern, geometric font like 'Poppins', 'Montserrat', or 'Exo 2'",
+      "styles": {
+        "main-title": {
+          "name": "section-main-title",
+          "fontSize": "32px",
+          "fontWeight": "700",
+          "color": "primary-text",
+          "dualColor": {
+            "highlightColor": "bright-cyan-glow"
+          }
+        },
+        "subtitle": {
+          "name": "section-subtitle",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "secondary-text"
+        },
+        "card-title": {
+          "name": "info-card-title",
+          "fontSize": "22px",
+          "fontWeight": "600",
+          "color": "primary-text"
+        },
+        "card-body": {
+          "name": "info-card-description",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "color": "secondary-text",
+          "lineHeight": "1.5"
+        },
+        "list-item": {
+          "name": "checklist-item-text",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "color": "secondary-text"
+        },
+        "button": {
+          "name": "cta-button-text",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "color": "primary-text"
+        }
+      }
+    },
+    "layout": {
+      "structure": "A centered, symmetrical two-column layout flanked by a decorative frame.",
+      "spacing": {
+        "baseUnit": "8px",
+        "medium": "16px",
+        "large": "24px",
+        "xlarge": "48px",
+        "column-gap": "64px"
+      }
+    },
+    "components": {
+      "page-frame": {
+        "name": "outer-decorative-frame",
+        "description": "The complex, multi-layered glowing frame on the left and right edges of the page.",
+        "style": {
+          "lineColor": "vibrant-purple-glow",
+          "secondaryLineColor": "bright-cyan-glow",
+          "glowEffect": "box-shadow: 0 0 15px var(--vibrant-purple-glow);"
+        }
+      },
+      "header-section": {
+        "name": "main-header",
+        "description": "The top section containing the page title and subtitles.",
+        "style": {
+          "textAlign": "center",
+          "padding": "large 0",
+          "marginBottom": "xlarge"
+        }
+      },
+      "content-grid": {
+        "name": "dual-card-container",
+        "description": "The container that holds the two main info cards in a grid.",
+        "style": {
+          "display": "grid",
+          "gridTemplateColumns": "1fr 1fr",
+          "gap": "column-gap",
+          "alignItems": "center"
+        }
+      },
+      "info-card": {
+        "name": "primary-info-card",
+        "description": "The main content card for displaying information like 'Whitepaper' or 'Security Audit'.",
+        "style": {
+          "border": "2px solid",
+          "borderColor": "varies per card (e.g., vibrant-purple-glow, bright-cyan-glow)",
+          "borderRadius": "16px",
+          "padding": "large",
+          "backgroundColor": "rgba(28, 15, 49, 0.7)",
+          "boxShadow": "inset 0 0 20px rgba(138, 43, 226, 0.2)"
+        },
+        "notched-corners": {
+          "name": "card-corner-cutout",
+          "description": "The inverted or 'notched' style of the card's corners."
+        }
+      },
+      "card-icon-container": {
+        "name": "card-header-icon-box",
+        "description": "The container at the top of the card that holds a representative icon or image.",
+        "style": {
+          "padding": "medium",
+          "marginBottom": "medium",
+          "display": "inline-block"
+        }
+      },
+      "checklist": {
+        "name": "feature-list",
+        "description": "A list of features or points, each preceded by a checkmark.",
+        "style": {
+          "listStyle": "none",
+          "padding": "0",
+          "marginTop": "large"
+        }
+      },
+      "checklist-item": {
+        "name": "feature-list-item",
+        "description": "A single item within the checklist.",
+        "style": {
+          "display": "flex",
+          "alignItems": "center",
+          "marginBottom": "medium"
+        }
+      },
+      "checklist-icon": {
+        "name": "success-checkmark-icon",
+        "description": "The circular green checkmark icon.",
+        "style": {
+          "color": "icon-success",
+          "marginRight": "12px"
+        }
+      },
+      "partner-logos": {
+        "name": "auditor-logo-display",
+        "description": "Container for displaying logos of partners or auditors.",
+        "style": {
+          "display": "flex",
+          "alignItems": "center",
+          "gap": "large",
+          "marginTop": "large"
+        }
+      },
+      "cta-button": {
+        "name": "card-action-button",
+        "description": "The primary call-to-action button within a card.",
+        "style": {
+          "background": "linear-gradient(90deg, var(--button-gradient-start), var(--vibrant-purple-glow))",
+          "borderRadius": "20px",
+          "padding": "12px 24px",
+          "border": "none",
+          "boxShadow": "0 0 15px var(--button-glow-color)",
+          "marginTop": "large",
+          "display": "inline-flex",
+          "alignItems": "center",
+          "gap": "8px"
+        }
+      },
+      "button-icon": {
+        "name": "external-link-icon",
+        "description": "Small icon inside the button to indicate an external link."
+      },
+      "central-mascot": {
+        "name": "center-stage-character",
+        "description": "The character illustration positioned between the two info cards.",
+        "style": {
+          "gridColumn": "1 / 3",
+          "gridRow": "1",
+          "justifySelf": "center",
+          "zIndex": "1"
+        }
+      }
+    }
+  }

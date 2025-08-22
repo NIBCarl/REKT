@@ -81,8 +81,8 @@ export default function RoadmapSection() {
       <div className="container">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-primary font-bold neon-glow-purple mb-2">
-            $REKT Roadmap
+          <h2 className="text-4xl font-primary font-bold mb-2">
+            <span className="text-cyan-400" style={{ textShadow: '0 0 8px #00ffff' }}>$REKT</span> Roadmap
           </h2>
           <p className="text-sm text-gray-400 uppercase tracking-wide">
             Staking exclusive to presale buyers · Simplified launch stack

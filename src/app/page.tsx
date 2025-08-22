@@ -6,6 +6,9 @@ import RektonomicsSection from '../components/Rektonomics/RektonomicsSection'
 import LeaderboardSection from '../components/Leaderboard/LeaderboardSection'
 import TeamSection from '@/components/Team/TeamSection'
 import RoadmapSection from '@/components/Roadmap/RoadmapSection'
+import WhitepaperSection from '@/components/Whitepaper/WhitepaperSection'
+import FAQSection from '@/components/FAQ/FAQSection'
+import FooterSection from '@/components/Footer/FooterSection'
 
 // Navigation Component
 function Navigation() {
@@ -193,17 +196,13 @@ function Navigation() {
                   </div>
                   
                   {/* Mobile menu content */}
-                  <div className="relative z-10 p-4">
-                    <div className="grid grid-cols-2 gap-3">
+                  <div className="relative z-10 p-6 flex flex-col h-screen">
+                    <div className="flex-1 flex flex-col items-center justify-center space-y-6">
                       {navLinks.map((link) => (
                         <button
                           key={link}
                           onClick={() => handleLinkClick(link)}
-                          className={`relative flex items-center justify-center px-4 py-3 text-sm font-medium transition-all duration-300 rounded-lg border hover:scale-105 hover:shadow-lg hover:shadow-purple-500/30 ${
-                            activeLink === link 
-                              ? 'text-white border-cyan-400 bg-cyan-400/10' 
-                              : 'text-gray-300 hover:text-cyan-400 border-purple-500/30 hover:border-cyan-400/50 hover:bg-purple-900/30'
-                          }`}
+                          className={`text-lg font-primary tracking-wider px-4 py-2 transition-colors ${activeLink === link ? 'text-cyan-400' : 'text-white hover:text-cyan-400'}`}
                         >
                           <span className="font-bold text-xs tracking-wider">
                             {link}
@@ -212,7 +211,7 @@ function Navigation() {
                       ))}
                     </div>
                     
-                    {/* Language selector in mobile menu */}
+                    {/* Social icons at bottom */}
                     <div className="mt-4 pt-4 border-t border-purple-500/30">
                       <button 
                         className="w-full flex items-center justify-center space-x-2 px-3 py-2 rounded-lg border transition-all hover:brightness-110"
@@ -676,6 +675,7 @@ function HeroSection() {
                 alt="REKT Animation"
                 width={800}
                 height={800}
+                unoptimized
                 className="w-[700px] h-[700px] animate-pulse opacity-80 hover:scale-105 hover:opacity-100 transition-all duration-500 cursor-pointer"
               />
             </div>
@@ -873,165 +873,7 @@ function AsSeenOnSection() {
   )
 }
 
-// Team Section moved to modular component in `src/components/Team/TeamSection.tsx`
-
-// FAQ Section Component
-function FAQSection() {
-  const [openQuestion, setOpenQuestion] = useState<number | null>(null)
-  
-  const faqs = [
-    {
-      q: "Can I sell everything after launch?",
-      a: "30% Unlocks at launch, the rest vests over 6 months. Want more early? Rage claim but expect a burn penalty."
-    },
-    {
-      q: "Do I earn rewards on locked tokens?",
-      a: "Yes! All presale tokens are automatically staked and earning rewards from day one."
-    },
-    {
-      q: "What happens after the burn cap?",
-      a: "Once 200M tokens are burned, the burn mechanism stops. Tax distribution shifts to 50% treasury, 50% staking."
-    },
-    {
-      q: "Which tokens can I use for Loss Claims?",
-      a: "Any verified loss from DeFi protocols, CEX liquidations, or rug pulls can be claimed with proper verification."
-    },
-    {
-      q: "Can I stake if I buy after the presale?",
-      a: "Absolutely! Staking is available to all $REKT holders, not just presale participants."
-    },
-    {
-      q: "How much REKT can I claim from losses?",
-      a: "Claims are calculated based on verified loss amount, wallet age, and community tier multipliers."
-    }
-  ]
-
-  return (
-    <section className="py-20 bg-gradient-to-b from-purple-900/10 to-transparent relative">
-      {/* Background docs card */}
-      <div className="absolute top-10 right-10 opacity-10">
-        <Image
-          src="/assets/docs-card.png"
-          alt="Documentation"
-          width={200}
-          height={200}
-          className="animate-float"
-        />
-      </div>
-      <div className="container relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-primary font-bold mb-4 neon-glow-pink">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-xl text-gray-300">
-            Everything you need to know about getting REKT
-          </p>
-        </div>
-        
-        <div className="max-w-3xl mx-auto space-y-4">
-          {faqs.map((faq, index) => (
-            <div key={index} className="card-default hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300 hover:border-cyan-400/50">
-              <button
-                onClick={() => setOpenQuestion(openQuestion === index ? null : index)}
-                className="w-full text-left flex justify-between items-center hover:text-cyan-300 transition-colors duration-300"
-              >
-                <h3 className="text-lg font-semibold text-cyan-400">{faq.q}</h3>
-                <span className="text-purple-400 text-xl">
-                  {openQuestion === index ? '−' : '+'}
-                </span>
-              </button>
-              {openQuestion === index && (
-                <div className="mt-4 pt-4 border-t border-purple-500/30">
-                  <p className="text-gray-300">{faq.a}</p>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-  /* legacy roadmap data removed
-    {
-      title: "Launch & Foundation",
-      goal: "Fair launch, instant staking, lean & meme-ready setup.",
-      items: [
-        "Deploying Smart Contract.",
-        "Open X (Twitter) & Telegram.",
-        "Dashboard: REKT Score Leaderboard, Vesting Tracker, Staking Reward, Burn Cap.",
-        "Auto Staking For All Presale Tokens, Start Earning From Day One.",
-        "Loss Claim V1 (Only For Presale Investors From $350 Transaction, 1 Claim Per Wallet, On-Chain Verified).",
-        "Solidproof Audit."
-      ]
-    },
-    {
-      title: "Utility & REKT Logic",
-      goal: "Activate tokenomics, engage stakers, drive on-chain volume.",
-      items: [
-        "1% Dex Tax: 50% Staking, 25% Treasury, And 25% Burn (Until 200M Burned).",
-        "Rage Claim Penalties Scale Over Time (20% -> 5%).",
-        "REKT Score Leaderboard.",
-        "Loss Claim V2: Wallet Age Multiplies, Cooldowns.",
-        "Burn Cap Tracker + Live Staking Stats.",
-        "Optional NFT Drop To Refill Staking Pool."
-      ]
-    },
-    {
-      title: "Scaling & Community Chaos",
-      goal: "Meme-powered growth and ecosystem expansion.",
-      items: [
-        "CEX Outreach (Solana-Friendly).",
-        "MEME Wars: Community Leaderboard + Airdrops.",
-        "Rekt Labs: Experimental Staking/NFT Features.",
-        "Final Audit (Certik Or Ottersec)."
-      ]
-    }
-  ]
-
-  return (
-    <section className="py-20 bg-gradient-to-b from-transparent to-purple-900/10">
-      <div className="container">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-primary font-bold mb-4 neon-glow-purple">
-            $REKT Roadmap
-          </h2>
-        </div>
-        
-        <div className="grid lg:grid-cols-3 gap-8">
-          {phases.map((phase, index) => (
-            <div key={index} className="card-default hover:border-cyan-500 transition-colors duration-300 relative">
-              
-              <div className="text-center mb-6 relative z-10">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-cyan-600 rounded-full mx-auto mb-4 flex items-center justify-center font-bold text-xl relative">
-                  <span className="relative z-10">{index + 1}</span>
-                </div>
-                <h3 className="text-xl font-primary font-bold mb-2 text-cyan-400">
-                  {phase.title}
-                </h3>
-                <p className="text-sm text-gray-400 mb-4">
-                  {phase.goal}
-                </p>
-              </div>
-              
-              <ul className="space-y-3">
-                {phase.items.map((item, itemIndex) => (
-                  <li key={itemIndex} className="flex items-start space-x-2">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-gray-300 text-sm">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-*/ 
+ 
 
 // Footer Component
 function Footer() {
@@ -1072,14 +914,17 @@ export default function HomePage() {
   return (
     <main className="min-h-screen">
       <Navigation />
-      <HeroSection />
+      <div id="hero"><HeroSection /></div>
       <AsSeenOnSection />
-      <RektonomicsSection />
-      <LeaderboardSection />
-      <TeamSection />
-      <RoadmapSection />
-      <FAQSection />
-      <Footer />
+      <div id="tokenomics"><RektonomicsSection /></div>
+      <div id="lossclaim" className="min-h-[50px]"></div>{/* placeholder */}
+      <div id="staking" className="min-h-[50px]"></div>{/* placeholder */}
+      <div id="leaderboard"><LeaderboardSection /></div>
+      <div id="team"><TeamSection /></div>
+      <div id="roadmap"><RoadmapSection /></div>
+      <div id="whitepaper"><WhitepaperSection /></div>
+      <div id="faq"><FAQSection /></div>
+      <FooterSection />
     </main>
   )
 }

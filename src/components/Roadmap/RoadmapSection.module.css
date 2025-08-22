@@ -38,6 +38,13 @@
   position: relative;
   padding: 16px 18px 18px 18px;
   background: transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.phaseCard:hover {
+  transform: scale(1.02);
+  filter: brightness(1.1);
 }
 
 
@@ -64,6 +71,11 @@
   padding: clamp(16px, 2.2vw, 24px) clamp(24px, 3vw, 36px) clamp(28px, 3.5vw, 44px) clamp(18px, 2.2vw, 28px);
   min-height: 230px;
   box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.goalBox:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
 }
 
 .goalLabel {
@@ -153,6 +165,13 @@
   top: 50%;
   left: 50%;
   transform: translateY(-50%);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.phaseBadge:hover {
+  transform: translateY(-50%) scale(1.05);
+  filter: brightness(1.15);
 }
 
 .badgeBox {
@@ -199,10 +218,18 @@
   transform: translateY(-50%);
 }
 
+.oppositeRight:hover {
+  transform: translateY(-50%) scale(1.05);
+}
+
 /* Place badge to the left side of the spine (for right cards) */
 .oppositeLeft {
   left: calc(50% - var(--spine-gap) - 8px);
   transform: translate(-100%, -50%);
+}
+
+.oppositeLeft:hover {
+  transform: translate(-100%, -50%) scale(1.05);
 }
 
 /* Reverse order so the PHASE badge stays closer to the spine and mascot sits outer */

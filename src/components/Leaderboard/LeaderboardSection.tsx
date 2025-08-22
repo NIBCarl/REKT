@@ -109,10 +109,10 @@ export default function LeaderboardSection({
           </div>
           {/* header decorations (both sides animation) */}
           <div className="pointer-events-none absolute left-0 top-4 w-28 h-32">
-            <Image src="/assets/leaderboard/Animation%20bothside%20Loser%20Leaderboard.gif" alt="leaderboard side animation left" fill className="object-contain scale-x-[-1]" />
+            <Image src="/assets/leaderboard/Animation%20bothside%20Loser%20Leaderboard.gif" alt="leaderboard side animation left" fill unoptimized className="object-contain scale-x-[-1]" />
           </div>
           <div className="pointer-events-none absolute right-0 top-4 w-28 h-32">
-            <Image src="/assets/leaderboard/Animation%20bothside%20Loser%20Leaderboard.gif" alt="leaderboard side animation right" fill className="object-contain" />
+            <Image src="/assets/leaderboard/Animation%20bothside%20Loser%20Leaderboard.gif" alt="leaderboard side animation right" fill unoptimized className="object-contain" />
           </div>
 
           {/* Header */}

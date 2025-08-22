@@ -1,0 +1,167 @@
+{
+    "designSystemName": "Neon_FAQ_UI",
+    "description": "A clean, modern, and futuristic UI design system for a 'Frequently Asked Questions' section. The design features a dark theme, a single-column layout, and interactive accordion elements styled with vibrant, glowing neon borders and dual-color text accents.",
+    "colorPalette": {
+      "primary": {
+        "name": "primary-background",
+        "hex": "#120c24",
+        "description": "Deep navy/purple, used for the main background. Has a subtle noise/texture overlay."
+      },
+      "secondary": {
+        "name": "accordion-background",
+        "hex": "#2a1a45",
+        "description": "A slightly lighter dark purple for the background of the accordion items."
+      },
+      "accent-glow-primary": {
+        "name": "vibrant-purple-glow",
+        "hex": "#8a2be2",
+        "description": "A bright, glowing purple used for the accordion borders and parts of the main title."
+      },
+      "accent-glow-secondary": {
+        "name": "bright-cyan-glow",
+        "hex": "#00d1ff",
+        "description": "A vivid cyan used for parts of the main title and the 'collapse' icon."
+      },
+      "text-primary": {
+        "name": "primary-text",
+        "hex": "#ffffff",
+        "description": "White for main headings and questions."
+      },
+      "text-secondary": {
+        "name": "secondary-text",
+        "hex": "#d3d3d3",
+        "description": "A light grey for subtitles and the answer text within the accordion."
+      }
+    },
+    "typography": {
+      "fontFamily": "Sans-Serif, a modern, geometric font like 'Poppins' or 'Exo 2'",
+      "styles": {
+        "main-title": {
+          "name": "section-main-title",
+          "fontSize": "36px",
+          "fontWeight": "700",
+          "color": "primary-text",
+          "dualColor": {
+            "highlightColor1": "bright-cyan-glow",
+            "highlightColor2": "vibrant-purple-glow"
+          }
+        },
+        "subtitle": {
+          "name": "section-subtitle",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "secondary-text"
+        },
+        "question": {
+          "name": "accordion-question-text",
+          "fontSize": "18px",
+          "fontWeight": "500",
+          "color": "primary-text"
+        },
+        "answer": {
+          "name": "accordion-answer-text",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "secondary-text",
+          "lineHeight": "1.6"
+        }
+      }
+    },
+    "layout": {
+      "structure": "A single-column, centered layout with a max-width for readability.",
+      "spacing": {
+        "baseUnit": "8px",
+        "small": "8px",
+        "medium": "16px",
+        "large": "24px",
+        "xlarge": "48px"
+      }
+    },
+    "components": {
+      "header": {
+        "name": "faq-header",
+        "description": "The top section containing the main title and subtitles.",
+        "style": {
+          "textAlign": "center",
+          "marginBottom": "xlarge"
+        }
+      },
+      "accordion-list": {
+        "name": "faq-container",
+        "description": "The main container that holds the list of accordion items.",
+        "style": {
+          "display": "flex",
+          "flexDirection": "column",
+          "gap": "medium"
+        }
+      },
+      "accordion-item": {
+        "name": "faq-item-card",
+        "description": "A single, collapsible FAQ item.",
+        "style": {
+          "backgroundColor": "accordion-background",
+          "borderRadius": "16px",
+          "border": "1px solid",
+          "borderColor": "vibrant-purple-glow",
+          "padding": "large",
+          "boxShadow": "inset 0 0 15px rgba(138, 43, 226, 0.2)",
+          "cursor": "pointer"
+        },
+        "states": {
+          "collapsed": "Shows only the question and a plus icon.",
+          "expanded": "Shows the question, answer, and a minus icon. The border glow might be more intense."
+        }
+      },
+      "accordion-header": {
+        "name": "question-bar",
+        "description": "The clickable header part of the accordion item.",
+        "style": {
+          "display": "flex",
+          "justifyContent": "space-between",
+          "alignItems": "center"
+        }
+      },
+      "accordion-content": {
+        "name": "answer-panel",
+        "description": "The content area of the accordion that is revealed on expand.",
+        "style": {
+          "paddingTop": "medium",
+          "borderTop": "1px solid rgba(138, 43, 226, 0.3)",
+          "marginTop": "medium"
+        }
+      },
+      "toggle-icon": {
+        "name": "expand-collapse-icon",
+        "description": "The plus/minus icon indicating the accordion state.",
+        "style": {
+          "fontSize": "24px",
+          "fontWeight": "bold"
+        },
+        "variants": {
+          "expand": {
+            "name": "plus-icon",
+            "color": "primary-text"
+          },
+          "collapse": {
+            "name": "minus-icon",
+            "color": "bright-cyan-glow"
+          }
+        }
+      },
+      "background-texture": {
+        "name": "subtle-noise-overlay",
+        "description": "A subtle texture applied to the main background to add depth and a 'space' or 'digital' feel.",
+        "style": "A faint, dark noise or static pattern overlaying the primary background color."
+      },
+      "page-divider": {
+        "name": "section-border-line",
+        "description": "The thin horizontal lines at the very top and bottom of the section.",
+        "style": {
+          "height": "1px",
+          "width": "100%",
+          "backgroundColor": "vibrant-purple-glow",
+          "opacity": "0.5"
+        }
+      }
+    }
+  }
