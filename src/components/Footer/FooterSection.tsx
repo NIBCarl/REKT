@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const firstRowLinks = [
   "Tokenomics",
@@ -16,7 +17,13 @@ const secondRowLinks = ["Loss Claim", "Staking"];
 export default function FooterSection() {
   const year = new Date().getFullYear();
 
+  const router = useRouter();
+
   const handleLinkClick = (link: string) => {
+    if (link === "Loss Claim") {
+      router.push("/loss-claim");
+      return;
+    }
     const targetId = link.toLowerCase().replace(/\s+/g, "");
     const section = document.getElementById(targetId);
     if (section) {
