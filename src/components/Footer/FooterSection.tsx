@@ -20,8 +20,9 @@ export default function FooterSection() {
   const router = useRouter();
 
   const handleLinkClick = (link: string) => {
-    if (link === "Loss Claim") {
-      router.push("/loss-claim");
+    if (link === "Loss Claim" || link === "Staking") {
+      const targetRoute = link === "Loss Claim" ? "/loss-claim" : "/staking";
+      router.push(targetRoute);
       return;
     }
     const targetId = link.toLowerCase().replace(/\s+/g, "");

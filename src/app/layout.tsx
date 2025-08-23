@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Orbitron, Audiowide } from 'next/font/google'
 import './globals.css'
+import PageTransitionLoader from '@/components/Layout/PageTransitionLoader'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -34,6 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${orbitron.variable} ${audiowide.variable} bg-background-main text-text-primary antialiased`}>
+        <PageTransitionLoader />
         {children}
       </body>
     </html>

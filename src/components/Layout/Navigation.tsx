@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import Image from 'next/image';
 
 // Shared Navigation bar extracted from original home page for reuse across pages
@@ -9,6 +9,9 @@ import Image from 'next/image';
 export default function Navigation() {
   const [activeLink, setActiveLink] = useState('Hero');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const pathname = usePathname();
+  const isHome = pathname === '/' || pathname.startsWith('/#');
 
   const navLinks = [
     'Hero',
@@ -30,17 +33,33 @@ export default function Navigation() {
   };
 
   const handleLinkClick = (link: string) => {
-    if (link === 'Loss Claim') {
-      router.push('/loss-claim');
+    // Route Loss Claim and Staking to dedicated pages
+    if (link === 'Loss Claim' || link === 'Staking') {
+      const targetRoute = link === 'Loss Claim' ? '/loss-claim' : '/staking';
+      router.push(targetRoute);
       return;
     }
-    setActiveLink(link);
-    setIsMobileMenuOpen(false);
+    
+
     const targetId = link.toLowerCase().replace(/\s+/g, '');
-    const section = document.getElementById(targetId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+
+    // If on home, use smooth scroll
+    if (isHome) {
+      setActiveLink(link);
+      setIsMobileMenuOpen(false);
+      const section = document.getElementById(targetId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        // Fallback navigate to hash to force reposition
+        router.push('/#' + targetId);
+      }
+      return;
     }
+
+    // If on a different page, navigate to home with anchor
+    router.push('/#' + targetId);
+    setIsMobileMenuOpen(false);
   };
 
   return (

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, Fragment } from 'react'
+import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import RektonomicsSection from '../components/Rektonomics/RektonomicsSection'
 import LeaderboardSection from '../components/Leaderboard/LeaderboardSection'
@@ -14,6 +15,7 @@ import FooterSection from '@/components/Footer/FooterSection'
 function Navigation() {
   const [activeLink, setActiveLink] = useState('Hero')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const router = useRouter();
   
   const navLinks = [
     'Hero', 'Tokenomics', 'Loss Claim', 'Staking', 
@@ -25,15 +27,18 @@ function Navigation() {
   }
 
   const handleLinkClick = (link: string) => {
-    setActiveLink(link)
-    setIsMobileMenuOpen(false)
-    // Smooth scroll to section if it exists
-    const targetId = link.toLowerCase().replace(/\s+/g, '')
-    const section = document.getElementById(targetId)
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' })
+    if (link === 'Loss Claim' || link === 'Staking') {
+      const targetRoute = link === 'Loss Claim' ? '/loss-claim' : '/staking';
+      router.push(targetRoute);
+      return;
     }
-  
+    setActiveLink(link);
+    setIsMobileMenuOpen(false);
+    const targetId = link.toLowerCase().replace(/\s+/g, '');
+    const section = document.getElementById(targetId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 
   return (
