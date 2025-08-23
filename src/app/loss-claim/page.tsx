@@ -158,9 +158,9 @@ export default function LossClaimPage() {
               <li>Tokens received from Loss Claim are <span className="text-yellow-400 font-semibold">NOT staked</span></li>
             </ul>
             <div className="mt-auto">
-              <button className="relative w-[178px] h-[50px] flex items-center justify-center focus:outline-none">
+              <button className="relative w-[178px] h-[50px] focus:outline-none">
                 <Image src="/assets/loss%20claim/check%20Eligibility%20button.svg" alt="View Eligibility" fill className="object-contain" />
-                <span className="relative z-10 font-semibold text-white text-[15px] leading-none">View Eligibility</span>
+                <span className="absolute inset-0 flex items-center justify-center font-semibold text-white text-[15px] leading-none">View Eligibility</span>
               </button>
             </div>
           </div>
@@ -176,7 +176,7 @@ export default function LossClaimPage() {
         </p>
         <Link href="#buy" className="relative inline-block w-[178px] h-[50px] focus:outline-none group">
           <Image src="/assets/loss%20claim/buy%20rekt%20button.svg" alt="Buy Rekt" fill className="object-contain" />
-          <span className="relative z-10 font-semibold text-white text-[15px] leading-none">BUY $REKT</span>
+          <span className="absolute inset-0 flex items-center justify-center font-semibold text-white text-[15px] leading-none">BUY $REKT</span>
         </Link>
       </section>
     </main>
