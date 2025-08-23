@@ -172,7 +172,7 @@ export default function LossClaimPage() {
       <section className="mt-24 bg-[#0058ff] py-16 text-center">
         <h2 className="font-display text-[28px] md:text-[32px] text-yellow-400 tracking-[0.01em] mb-3">V1 Bonus — One Time Only</h2>
         <p className="text-white mb-8 max-w-2xl mx-auto">
-          Miss the claim window, and it's gone forever.
+          Miss the claim window, and it&apos;s gone forever.
         </p>
         <Link href="#buy" className="relative inline-block w-[178px] h-[50px] focus:outline-none group">
           <Image src="/assets/loss%20claim/buy%20rekt%20button.svg" alt="Buy Rekt" fill className="object-contain" />
