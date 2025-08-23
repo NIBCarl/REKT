@@ -1,0 +1,209 @@
+{
+  "designSystemName": "SREKT_Web3_Interface",
+  "description": "A design system for a Web3/crypto project landing page with a futuristic, neon, and slightly playful 'degen' aesthetic. The style is characterized by dark backgrounds, vibrant purple and cyan accents, glowing effects, and tech-inspired geometric patterns.",
+  "style": {
+    "theme": "Dark",
+    "aesthetic": ["Futuristic", "Neon", "Tech", "Playful", "Web3"],
+    "overallLook": "The interface uses a dark purple, space-themed background with subtle grid and geometric overlays. The primary elements have a distinct neon glow effect, creating high contrast and a video game-like feel. The layout is structured within a central, bordered container that resembles a futuristic heads-up display (HUD)."
+  },
+  "designTokens": {
+    "colors": {
+      "primary": {
+        "deepPurple": "#1a0f3d",
+        "mediumPurple": "#4f2f8f",
+        "brightPurple": "#8a42ff"
+      },
+      "secondary": {
+        "cyan": "#00d1ff",
+        "lightCyan": "#a2faff"
+      },
+      "accent": {
+        "green": "#4caf50",
+        "white": "#ffffff"
+      },
+      "background": {
+        "primary": "#0e0921",
+        "container": "rgba(10, 5, 30, 0.5)"
+      },
+      "text": {
+        "primary": "#ffffff",
+        "secondary": "#a2faff",
+        "cta": "#ffffff"
+      },
+      "effects": {
+        "glow": "0 0 10px #8a42ff, 0 0 20px #8a42ff, 0 0 5px #00d1ff"
+      }
+    },
+    "typography": {
+      "primaryFont": {
+        "fontFamily": "'Orbitron', sans-serif",
+        "comment": "Suggested font for a futuristic, blocky feel. The actual font should be identified or a similar one chosen."
+      },
+      "secondaryFont": {
+        "fontFamily": "'Roboto', sans-serif",
+        "comment": "A clean, sans-serif font for body text and instructions."
+      },
+      "headings": {
+        "h1": {
+          "fontSize": "48px",
+          "fontWeight": "700",
+          "textTransform": "uppercase"
+        },
+        "h2": {
+          "fontSize": "36px",
+          "fontWeight": "600"
+        },
+        "h3": {
+          "fontSize": "24px",
+          "fontWeight": "500",
+          "textTransform": "uppercase"
+        }
+      },
+      "body": {
+        "fontSize": "16px",
+        "fontWeight": "400"
+      },
+      "labels": {
+        "fontSize": "14px",
+        "fontWeight": "500",
+        "textTransform": "uppercase"
+      }
+    },
+    "spacing": {
+      "baseUnit": "8px",
+      "padding": {
+        "small": "8px",
+        "medium": "16px",
+        "large": "24px"
+      },
+      "margin": {
+        "small": "8px",
+        "medium": "16px",
+        "large": "24px"
+      },
+      "borderRadius": {
+        "small": "4px",
+        "medium": "8px",
+        "large": "12px"
+      }
+    },
+    "effects": {
+      "glow": {
+        "property": "box-shadow",
+        "value": "0 0 5px var(--colors-primary-brightPurple), 0 0 10px var(--colors-secondary-cyan)"
+      },
+      "border": "1px solid var(--colors-secondary-cyan)"
+    }
+  },
+  "structure": {
+    "layout": {
+      "type": "Contained",
+      "maxWidth": "1440px",
+      "grid": "Two-column layout within the main container.",
+      "mainContainer": "A central, screen-like frame with angular corners and decorative tech lines. This contains all primary content."
+    },
+    "header": {
+      "position": "Fixed Top",
+      "elements": ["Logo", "NavigationMenu", "SocialLinks", "LanguageSelector", "FAQButton"],
+      "style": "Contained within the top border of the main HUD-like frame."
+    },
+    "mainContent": {
+      "columnLeft": {
+        "alignment": "Left",
+        "elements": ["LogoAndTitle", "Tagline1", "Tagline2", "HowToBuySection"]
+      },
+      "columnRight": {
+        "alignment": "Right",
+        "elements": ["PresaleCard"]
+      }
+    },
+    "animatedElements": {
+      "centralCharacter": {
+        "placement": "Center of the layout, slightly overlapping both columns but primarily anchored to the left. It's positioned behind the PresaleCard but in front of the main background.",
+        "type": "GIF or animated vector",
+        "animation": "A continuous loop showing a character tossing money, adding dynamic movement to the scene.",
+        "style": "Matches the cartoonish, edgy style of the logo and branding."
+      },
+      "background": {
+        "type": "Subtle animation",
+        "animation": "May include slow-moving particles or shifting geometric patterns to create depth."
+      }
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": {
+        "style": "Filled with a purple-to-cyan gradient, white uppercase text, and an outer glow on hover.",
+        "borderRadius": "var(--spacing-borderRadius-medium)",
+        "padding": "var(--spacing-padding-medium)",
+        "hoverEffect": "Increased glow intensity and brightness."
+      },
+      "secondary": {
+        "style": "Transparent background with a solid cyan border and cyan text.",
+        "borderRadius": "var(--spacing-borderRadius-medium)",
+        "padding": "var(--spacing-padding-small) var(--spacing-padding-medium)",
+        "hoverEffect": "Background fills with a semi-transparent cyan color."
+      }
+    },
+    "cards": {
+      "presaleCard": {
+        "style": "Contained within a bordered frame that matches the main HUD. It has a semi-transparent purple background.",
+        "borderRadius": "var(--spacing-borderRadius-large)",
+        "border": "1px solid var(--colors-secondary-cyan)",
+        "padding": "var(--spacing-padding-large)",
+        "glowEffect": "A subtle inner and outer glow to make it pop from the background."
+      }
+    },
+    "countdownTimer": {
+      "containerStyle": "Flexbox layout with individual boxes for Days, Hours, Minutes, Seconds.",
+      "boxStyle": {
+        "background": "rgba(0, 0, 0, 0.3)",
+        "border": "1px solid var(--colors-primary-brightPurple)",
+        "borderRadius": "var(--spacing-borderRadius-small)"
+      },
+      "digitStyle": {
+        "fontFamily": "var(--typography-primaryFont)",
+        "fontSize": "32px",
+        "color": "var(--colors-text-primary)"
+      },
+      "labelStyle": {
+        "fontFamily": "var(--typography-secondaryFont)",
+        "fontSize": "12px",
+        "textTransform": "uppercase",
+        "color": "var(--colors-text-secondary)"
+      }
+    },
+    "progressBar": {
+      "trackStyle": {
+        "background": "rgba(0, 0, 0, 0.5)",
+        "borderRadius": "var(--spacing-borderRadius-large)",
+        "border": "1px solid var(--colors-secondary-cyan)"
+      },
+      "fillStyle": {
+        "background": "linear-gradient(90deg, var(--colors-primary-brightPurple), var(--colors-secondary-cyan))",
+        "borderRadius": "var(--spacing-borderRadius-large)"
+      }
+    },
+    "inputFields": {
+      "style": "Transparent background with a bottom border in cyan. White text color.",
+      "placeholder": "Light gray or secondary cyan text.",
+      "focusEffect": "The bottom border glows more intensely."
+    },
+    "navigation": {
+      "linkStyle": {
+        "color": "var(--colors-text-primary)",
+        "textTransform": "uppercase",
+        "fontWeight": "600",
+        "padding": "var(--spacing-padding-small) var(--spacing-padding-medium)"
+      },
+      "activeLinkStyle": {
+        "backgroundColor": "var(--colors-primary-brightPurple)",
+        "borderRadius": "var(--spacing-borderRadius-medium)",
+        "color": "var(--colors-text-cta)"
+      },
+      "hoverLinkStyle": {
+        "color": "var(--colors-secondary-cyan)"
+      }
+    }
+  }
+}
