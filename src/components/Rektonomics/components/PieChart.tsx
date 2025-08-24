@@ -16,6 +16,7 @@ import {
 } from '../utils/assetOptimization';
 import styles from './PieChart.module.css';
 import fallbackStyles from '../utils/assetOptimization.module.css';
+import { ASSET_OPTIONS } from '../constants';
 
 const PieChart: React.FC<PieChartProps> = ({
     data,
@@ -58,6 +59,20 @@ const PieChart: React.FC<PieChartProps> = ({
                         alt={imageProps.alt || 'Tokenomics distribution pie chart'}
                     />
                 )}
+
+                {/* Center overlay GIF in the donut hole */}
+                <div className={styles.centerOverlay} aria-hidden="true">
+                    <Image
+                        src={ASSET_OPTIONS.MASCOTS.COINDUST}
+                        alt="Coin dust effect"
+                        width={82}
+                        height={82}
+                        className={styles.coinDustGif}
+                        unoptimized
+                        loading="lazy"
+                        sizes="(max-width: 480px) 60px, (max-width: 768px) 68px, (max-width: 1024px) 76px, 82px"
+                    />
+                </div>
             </div>
         </div>
     );

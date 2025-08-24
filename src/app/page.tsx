@@ -902,42 +902,6 @@ function AsSeenOnSection() {
   )
 }
 
- 
-
-// Footer Component
-function Footer() {
-  return (
-    <footer className="py-12 border-t border-purple-500/30">
-      <div className="container">
-        <div className="text-center space-y-6">
-          <div className="flex justify-center items-center space-x-3">
-            <Image
-              src="/assets/hero-section/$rekt.png"
-              alt="REKT Logo"
-              width={120}
-              height={50}
-              className="object-contain"
-            />
-          </div>
-          
-          <div className="flex justify-center space-x-6">
-            <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
-              Telegram
-            </a>
-            <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
-              Twitter/X
-            </a>
-          </div>
-          
-          <p className="text-sm text-gray-500 max-w-2xl mx-auto">
-            Meme coin with utility. No guaranteed profits. Not financial advice. Use at your own risk.
-          </p>
-        </div>
-      </div>
-    </footer>
-  )
-}
-
 // Main Page Component
 export default function HomePage() {
   return (

@@ -46,7 +46,29 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* Align the donut hole; nudged so the hole sits a bit lower (overlay appears higher) */
+  object-position: 53% 52%;
   border-radius: 50%;
+}
+
+/* Centered overlay container for the coin dust GIF */
+.centerOverlay {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  pointer-events: none; /* ensure chart hover still works */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Coin dust GIF sizing */
+.coinDustGif {
+  width: 82px;
+  height: 82px;
+  object-fit: contain;
 }
 
 .legend {
@@ -133,6 +155,11 @@
     height: 280px;
   }
   
+  .coinDustGif {
+    width: 76px;
+    height: 76px;
+  }
+  
   .legend {
     max-width: 260px;
   }
@@ -148,6 +175,11 @@
   .chartWrapper {
     width: 250px;
     height: 250px;
+  }
+  
+  .coinDustGif {
+    width: 68px;
+    height: 68px;
   }
   
   .legend {
@@ -167,6 +199,11 @@
   .chartWrapper {
     width: 220px;
     height: 220px;
+  }
+  
+  .coinDustGif {
+    width: 60px;
+    height: 60px;
   }
   
   .legend {

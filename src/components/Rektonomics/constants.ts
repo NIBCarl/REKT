@@ -15,7 +15,7 @@ import { RektonomicsAssets, TokenomicsData, DistributionItem, TaxBreakdownItem }
 
 // Asset paths
 export const REKTONOMICS_ASSETS: RektonomicsAssets = {
-  border: '/assets/Rektonomics/frame of rektonomics.png',
+  border: '/assets/Rektonomics/frame_rektonomics.png',
   totalSupplyBg: '/assets/Rektonomics/total supply background.svg',
   mascotGif: '/assets/Rektonomics/main gif in the rektonomics put it the middle.gif',
   pieChart: '/assets/Rektonomics/tokenomics chart.png',
