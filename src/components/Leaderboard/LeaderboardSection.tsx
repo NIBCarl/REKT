@@ -1,12 +1,15 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 // Leaderboard section replaced with static SVG frame; hooks no longer needed.
 
 /*
  * Loser Leaderboard component – static SVG frame render (stand-alone, responsive)
  */
 export default function LeaderboardSection() {
+  const router = useRouter();
   // Static replacement: render the provided SVG frame only.
 
   return (
@@ -40,6 +43,42 @@ export default function LeaderboardSection() {
             aria-hidden
             className="object-contain"
           />
+        </div>
+        {/* CTA Buttons group */}
+        <div className="absolute left-1/2 -translate-x-1/2 ml-[-2px] bottom-11 md:bottom-14 lg:bottom-13 z-[60]">
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              aria-label="Refresh Leaderboard"
+              onClick={() => router.refresh()}
+              className="block cursor-pointer transition-transform hover:scale-[1.02] active:scale-95"
+            >
+              <Image
+                src="/assets/leaderboard/button.svg"
+                alt="Refresh Leaderboard"
+                width={170}
+                height={48}
+                unoptimized
+                priority
+                className="w-[170px] h-[48px] object-contain drop-shadow-[0_0_12px_rgba(0,255,255,0.35)]"
+              />
+            </button>
+            <Link
+              href="/loss-claim"
+              aria-label="Open Loss Claim"
+              className="block cursor-pointer transition-transform hover:scale-[1.02] active:scale-95"
+            >
+              <Image
+                src="/assets/leaderboard/button2.svg"
+                alt="Open Loss Claim"
+                width={170}
+                height={48}
+                unoptimized
+                priority
+                className="w-[170px] h-[48px] object-contain drop-shadow-[0_0_12px_rgba(0,255,255,0.35)]"
+              />
+            </Link>
+          </div>
         </div>
       </div>
     </section>
