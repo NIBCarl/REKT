@@ -16,23 +16,17 @@
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 16px;
-  border: 2px solid #8a2be2;
-  box-shadow: 
-    0 0 15px rgba(138, 43, 226, 0.5),
-    0 0 30px rgba(0, 255, 255, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: none;
+  box-shadow: none;
   overflow: hidden;
   backdrop-filter: blur(10px);
   transition: all 0.4s ease;
 }
 
 .taxContainer:hover {
-  border-color: #00ffff;
-  box-shadow: 
-    0 0 25px rgba(138, 43, 226, 0.7),
-    0 0 50px rgba(0, 255, 255, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
+  border-color: inherit;
+  box-shadow: none;
+  transform: none;
 }
 
 .cornerBrackets {

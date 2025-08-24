@@ -152,7 +152,7 @@ export const getOptimizedImageProps = (
 export const ASSET_PRIORITIES = {
   // Critical assets that should load immediately
   critical: [
-    '/assets/Rektonomics/rektonomics border.jpg',
+    '/assets/Rektonomics/frame of rektonomics.png',
     '/assets/Rektonomics/total supply background.svg',
   ],
   // Important assets that should load early but not block initial render

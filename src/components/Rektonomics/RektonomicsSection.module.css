@@ -44,8 +44,8 @@
   --breakpoint-desktop: 1024px;
   --breakpoint-large: 1440px;
   
-  --container-max-width: 1200px;
-  --container-large-max-width: 1400px;
+  --container-max-width: 1320px;
+  --container-large-max-width: 1560px;
   
   --grid-gap-mobile: var(--spacing-large);
   --grid-gap-tablet: var(--spacing-large);
@@ -125,10 +125,10 @@
   grid-template-columns: 1fr auto 1fr;
   grid-template-areas: "distribution mascot chart";
   gap: var(--grid-gap-desktop);
-  align-items: stretch;
+  align-items: center; /* center items vertically for tighter composition */
   justify-items: center;
   margin-bottom: 0; /* Remove margin since tax section is separate */
-  min-height: 300px;
+  min-height: 260px; /* reduced to remove excess empty space */
   position: relative;
 }
 
@@ -152,7 +152,7 @@
 .mascotCenter {
   grid-area: mascot;
   justify-self: center;
-  align-self: stretch;
+  align-self: center; /* prevent stretching to avoid extra empty space */
   flex-shrink: 0;
 }
 
@@ -166,7 +166,7 @@
 
 /* Tax Container - Separate from main container */
 .taxContainer {
-  margin-top: var(--spacing-xlarge);
+  margin-top: var(--spacing-small); /* move even closer to Rektonomics frame */
   width: 100%;
 }
 
@@ -183,7 +183,7 @@
   .contentGrid {
     grid-template-columns: 1fr 200px 1fr;
     gap: var(--grid-gap-tablet);
-    min-height: 250px;
+    min-height: 220px; /* reduce excess vertical space on tablet */
   }
   
   .distributionSection,
@@ -193,7 +193,7 @@
   }
   
   .taxContainer {
-    margin-top: var(--spacing-large);
+    margin-top: var(--spacing-small); /* tighter on tablet */
   }
   
   .sectionTitle {
@@ -246,7 +246,7 @@
   }
   
   .taxContainer {
-    margin-top: var(--spacing-medium);
+    margin-top: var(--spacing-small); /* tighter on mobile */
   }
   
   .sectionTitle {

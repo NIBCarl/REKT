@@ -1,7 +1,7 @@
 /**
  * MainContainer Component
- * Provides the main container with futuristic border styling using rektonomics border.jpg
- * Implements corner bracket styling with neon pink/cyan accents and glow effects
+ * Provides the main container with a purple-stroked PNG frame overlay (no side cropping).
+ * Corner brackets are disabled; inner spacing handled via content wrapper with top-safe area.
  */
 
 import React from 'react';
@@ -54,14 +54,6 @@ const MainContainer: React.FC<MainContainerProps> = ({
             alt={imageProps.alt || 'Futuristic container border decoration'}
           />
         )}
-      </div>
-      
-      {/* Corner brackets */}
-      <div className={styles.cornerBrackets}>
-        <div className={`${styles.bracket} ${styles.topLeft}`}></div>
-        <div className={`${styles.bracket} ${styles.topRight}`}></div>
-        <div className={`${styles.bracket} ${styles.bottomLeft}`}></div>
-        <div className={`${styles.bracket} ${styles.bottomRight}`}></div>
       </div>
       
       {/* Content wrapper */}
