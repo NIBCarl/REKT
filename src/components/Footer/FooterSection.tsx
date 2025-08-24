@@ -35,7 +35,7 @@ export default function FooterSection() {
   return (
     <footer className="relative pt-0 pb-6 mt-0 border-t border-purple-500/50 overflow-hidden">
       {/* Top Disclaimer Bar */}
-      <div className="w-full overflow-hidden bg-[#3e008c] py-2">
+      <div className="w-full overflow-hidden bg-[#3e008c] py-2 px-3 lg:px-4">
         <div className="inline-block animate-scroll-infinite whitespace-nowrap text-[13px]">
           <span className="text-[var(--text-accent)] font-primary font-bold mr-1">Disclaimer:</span>
           Meme coin with utility. No guaranteed profits. Not financial advice. Use at your own risk. &nbsp; • &nbsp;
@@ -53,7 +53,7 @@ export default function FooterSection() {
         <Image src="/assets/bg-2-1.png" alt="Background" fill className="object-cover" />
       </div>
 
-      <div className="relative container z-10 flex flex-col lg:flex-row gap-10 lg:gap-16 py-8 items-start lg:items-start">
+      <div className="relative z-10 w-full px-3 lg:px-6 grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-4 lg:gap-6 py-8 items-start">
         {/* Left Column */}
         <div className="max-w-sm space-y-4">
           <div className="flex items-center space-x-3">
@@ -78,7 +78,7 @@ export default function FooterSection() {
         </div>
 
         {/* Center Links */}
-        <div className="flex-1 flex flex-col items-center lg:items-center text-[13px] text-gray-300 space-y-2">
+        <div className="flex flex-col items-center lg:items-center lg:justify-self-center text-[13px] text-gray-300 space-y-2">
           <div className="flex flex-wrap justify-center gap-10">
             {firstRowLinks.map((link) => (
               <button
@@ -104,7 +104,7 @@ export default function FooterSection() {
         </div>
 
         {/* Right Column - Socials */}
-        <div className="flex flex-col items-start lg:items-end space-y-4">
+        <div className="flex flex-col items-start lg:items-end space-y-4 lg:justify-self-end">
           <h4 className="text-white font-primary text-lg tracking-wide font-bold">Join our Social links</h4>
           <div className="flex space-x-4">
             {/* Telegram */}
@@ -159,7 +159,7 @@ export default function FooterSection() {
       </div>
 
       {/* Bottom Copyright */}
-      <div className="relative z-10 mt-8 pt-4 border-t border-purple-500/30 text-center text-xs text-white">
+      <div className="relative z-10 mt-8 pt-4 border-t border-purple-500/30 text-center text-xs text-white px-3 lg:px-6">
         Copyright © $REKT {year}. All rights reserved.
       </div>
     </footer>
