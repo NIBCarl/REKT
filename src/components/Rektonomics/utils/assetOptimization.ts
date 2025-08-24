@@ -164,7 +164,7 @@ export const ASSET_PRIORITIES = {
   // Non-critical assets that can be lazy loaded
   lazy: [
     '/assets/Rektonomics/main gif in the rektonomics put it the middle.gif',
-    '/assets/Rektonomics/tax on every buy-sell background.png',
+    '/assets/Rektonomics/tax.png',
     '/assets/Rektonomics/liquidity line.svg',
     '/assets/Rektonomics/Staking pool line.svg',
     '/assets/Rektonomics/community fund line.svg',

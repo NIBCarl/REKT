@@ -11,7 +11,7 @@
     rgba(26, 15, 43, 0.95) 0%,
     rgba(42, 26, 69, 0.9) 100%
   );
-  background-image: url('/assets/Rektonomics/tax on every buy-sell background.png');
+  background-image: url('/assets/Rektonomics/tax.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -99,13 +99,15 @@
 .contentWrapper {
   position: relative;
   z-index: 1;
-  padding: 24px;
+  /* Shift content down without increasing total height: 24+24=48 -> 36+12=48 */
+  padding: 36px 24px 12px;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .contentWrapper {
-    padding: 20px;
+    /* 20+20=40 -> 28+12=40 */
+    padding: 28px 20px 12px;
   }
   
   .bracket {
@@ -136,7 +138,8 @@
 
 @media (max-width: 480px) {
   .contentWrapper {
-    padding: 16px;
+    /* 16+16=32 -> 22+10=32 */
+    padding: 22px 16px 10px;
   }
   
   .bracket {

@@ -13,14 +13,6 @@ const TaxContainer: React.FC<MainContainerProps> = ({
 }) => {
   return (
     <div className={`${styles.taxContainer} ${className}`}>
-      {/* Corner brackets */}
-      <div className={styles.cornerBrackets}>
-        <div className={`${styles.bracket} ${styles.topLeft}`}></div>
-        <div className={`${styles.bracket} ${styles.topRight}`}></div>
-        <div className={`${styles.bracket} ${styles.bottomLeft}`}></div>
-        <div className={`${styles.bracket} ${styles.bottomRight}`}></div>
-      </div>
-      
       {/* Content wrapper */}
       <div className={styles.contentWrapper}>
         {children}

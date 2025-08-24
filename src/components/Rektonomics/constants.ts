@@ -19,7 +19,7 @@ export const REKTONOMICS_ASSETS: RektonomicsAssets = {
   totalSupplyBg: '/assets/Rektonomics/total supply background.svg',
   mascotGif: '/assets/Rektonomics/main gif in the rektonomics put it the middle.gif',
   pieChart: '/assets/Rektonomics/tokenomics chart.png',
-  taxBackground: '/assets/Rektonomics/tax on every buy-sell background.png',
+  taxBackground: '/assets/Rektonomics/tax.png',
   distributionLines: {
     presale: '/assets/Rektonomics/presale line.svg',
     treasury: '/assets/Rektonomics/treasury line.svg',
