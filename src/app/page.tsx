@@ -71,7 +71,7 @@ function Navigation() {
             <div className="relative z-10 flex items-center justify-between px-4 sm:px-6 py-3">
               {/* Logo */}
               <div className="flex items-center space-x-2 sm:space-x-3">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-r from-cyan-400 to-purple-600 flex items-center justify-center relative">
+                <div className="w-10 h-10 sm:w-10 sm:h-10 rounded-full bg-gradient-to-r from-cyan-400 to-purple-600 flex items-center justify-center relative">
                   <Image
                     src="/assets/hero-section/logocoin.png"
                     alt="REKT Coin"
@@ -297,7 +297,7 @@ function CountdownTimer() {
             <Image
               src="/assets/hero-section/colon.png"
               alt="Colon Separator"
-              width={12}
+              width={40}
               height={40}
               className="w-3 h-10 object-contain"
               aria-hidden="true"
@@ -616,6 +616,14 @@ function HeroSection() {
                     className="filter drop-shadow-lg animate-float hover:scale-110 hover:brightness-110 transition-all duration-300 cursor-pointer"
                   />
                   
+                  <Image
+                    src="/assets/hero-section/confitte.gif"
+                    alt="Confetti animation"
+                    width={300}
+                    height={150}
+                    unoptimized
+                    className="absolute top-1/2 left-1/2 w-[300px] h-[150px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" style={{ zIndex: -5 }}
+                  />
                   {/* Small glow effect behind mascot */}
                   <div className="absolute -inset-4 bg-gradient-to-r from-cyan-400/20 to-purple-600/20 blur-xl -z-10 rounded-full"></div>
                 </div>
@@ -699,9 +707,9 @@ function HeroSection() {
       </div>
       
       {/* Floating Decorative Elements */}
-      <div className="absolute top-10 left-10 animate-float hover:scale-125 hover:rotate-45 transition-all duration-300 cursor-pointer">
+      <div className="hidden">
         <Image
-          src="/assets/rekt_confetti_2-3583c4.png"
+          src="/assets/hero-section/confitte.gif"
           alt="Confetti"
           width={40}
           height={40}
@@ -717,13 +725,29 @@ function HeroSection() {
           className="opacity-60"
         />
       </div>
-      <div className="absolute bottom-1/4 left-1/4 animate-float hover:scale-125 hover:rotate-90 transition-all duration-300 cursor-pointer" style={{ animationDelay: '2s' }}>
+      <div
+        className="absolute bottom-[120px] -left-3 animate-float hover:scale-110 transition-all duration-300 cursor-pointer rotate-180"
+        style={{ animationDelay: '2s' }}
+      >
         <Image
-          src="/assets/rekt_rocket_1.png"
-          alt="Rocket"
-          width={50}
-          height={50}
-          className="opacity-40"
+          src="/assets/hero-section/rocket.gif"
+          alt="Rocket launching mirrored"
+          width={167}
+          height={167}
+          unoptimized
+          className="opacity-80 w-[167px] h-[167px]"
+          style={{ transform: 'scaleY(-1)' }}
+        />
+      </div>
+      <div className="absolute bottom-[160px] right-6 animate-float hover:scale-110 transition-all duration-300 cursor-pointer rotate-180" style={{ animationDelay: '2.5s' }}>
+        <Image
+          src="/assets/hero-section/rocket.gif"
+          alt="Rocket launching mirrored right"
+          width={250}
+          height={250}
+          unoptimized
+          className="opacity-80 w-[250px] h-[250px]"
+          style={{ transform: 'scaleY(-1) scaleX(-1)' }}
         />
       </div>
       <div className="absolute top-1/2 right-10 animate-float hover:scale-125 hover:rotate-180 transition-all duration-300 cursor-pointer" style={{ animationDelay: '0.5s' }}>
