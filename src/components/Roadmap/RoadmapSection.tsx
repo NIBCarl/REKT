@@ -22,7 +22,7 @@ export default function RoadmapSection() {
   return (
     <section id="roadmap" className={`relative py-20 bg-gradient-to-b from-transparent to-purple-900/10 ${styles.sectionRoot}`}>
       {/* Top separators: left/right segments with a center gap */}
-      <div className={styles.topSeparatorLeft} aria-hidden="true">
+      <div className={`${styles.topSeparatorLeft} hidden`} aria-hidden="true">
         <Image
           src="/assets/roadmap/top%20line.png"
           alt=""
@@ -31,7 +31,7 @@ export default function RoadmapSection() {
           className="object-cover object-right pointer-events-none"
         />
       </div>
-      <div className={styles.topSeparatorRight} aria-hidden="true">
+      <div className={`${styles.topSeparatorRight} hidden`} aria-hidden="true">
         <Image
           src="/assets/roadmap/top%20line.png"
           alt=""
@@ -41,7 +41,7 @@ export default function RoadmapSection() {
         />
       </div>
       {/* Middle purple fillers on both sides */}
-      <div className={styles.topSeparatorMiddleLeft} aria-hidden="true">
+      <div className={`${styles.topSeparatorMiddleLeft} hidden`} aria-hidden="true">
         <Image
           src="/assets/roadmap/middle%20line%20in%20the%20top.png"
           alt=""
@@ -50,7 +50,7 @@ export default function RoadmapSection() {
           className="object-cover object-right pointer-events-none"
         />
       </div>
-      <div className={styles.topSeparatorMiddleRight} aria-hidden="true">
+      <div className={`${styles.topSeparatorMiddleRight} hidden`} aria-hidden="true">
         <Image
           src="/assets/roadmap/middle%20line%20in%20the%20top.png"
           alt=""
@@ -60,7 +60,7 @@ export default function RoadmapSection() {
         />
       </div>
       {/* Lower double-line segments */}
-      <div className={styles.topSeparatorLowerLeft} aria-hidden="true">
+      <div className={`${styles.topSeparatorLowerLeft} hidden`} aria-hidden="true">
         <Image
           src="/assets/roadmap/top%20line.png"
           alt=""
@@ -69,7 +69,7 @@ export default function RoadmapSection() {
           className="object-cover object-right pointer-events-none"
         />
       </div>
-      <div className={styles.topSeparatorLowerRight} aria-hidden="true">
+      <div className={`${styles.topSeparatorLowerRight} hidden`} aria-hidden="true">
         <Image
           src="/assets/roadmap/top%20line.png"
           alt=""
@@ -78,13 +78,32 @@ export default function RoadmapSection() {
           className="object-cover object-left pointer-events-none"
         />
       </div>
-      <div className="container">
+      <div className="relative z-10 w-full">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-primary font-bold mb-2">
-            <span className="text-cyan-400" style={{ textShadow: '0 0 8px #00ffff' }}>$REKT</span> Roadmap
-          </h2>
-          <p className="text-sm text-gray-400 uppercase tracking-wide">
+        <div className="mb-12">
+          <div className="flex items-center justify-center gap-4 md:gap-8">
+            <Image
+              src="/assets/roadmap/topbothsideline.svg"
+              alt=""
+              width={441}
+              height={31}
+              className="hidden md:block flex-grow basis-0 h-auto select-none"
+              loading="lazy"
+            />
+            <h2 className="text-4xl font-primary font-bold whitespace-nowrap">
+              <span className="text-cyan-400" style={{ textShadow: '0 0 8px #00ffff' }}>$REKT</span> Roadmap
+            </h2>
+            <Image
+              src="/assets/roadmap/topbothsideline.svg"
+              alt=""
+              width={441}
+              height={31}
+              className="hidden md:block flex-grow basis-0 h-auto select-none"
+              style={{ transform: 'scaleX(-1)' }}
+              loading="lazy"
+            />
+          </div>
+          <p className="text-sm text-gray-400 uppercase tracking-wide text-center">
             Staking exclusive to presale buyers · Simplified launch stack
           </p>
         </div>
@@ -181,7 +200,7 @@ export default function RoadmapSection() {
         </div>
       </div>
       {/* Upper separator line (for double-line effect) */}
-      <div className={styles.bottomSeparatorUpper} aria-hidden="true">
+      <div className={`${styles.bottomSeparatorUpper} hidden`} aria-hidden="true">
         <Image
           src="/assets/roadmap/bottom%20line.png"
           alt=""
@@ -191,7 +210,7 @@ export default function RoadmapSection() {
         />
       </div>
       {/* Middle filler line */}
-      <div className={styles.bottomSeparatorMiddle} aria-hidden="true">
+      <div className={`${styles.bottomSeparatorMiddle} hidden`} aria-hidden="true">
         <Image
           src="/assets/roadmap/middle%20line%20in%20the%20bottom.png"
           alt=""
@@ -201,13 +220,29 @@ export default function RoadmapSection() {
         />
       </div>
       {/* Bottom separator line */}
-      <div className={styles.bottomSeparator} aria-hidden="true">
+      <div className={`${styles.bottomSeparator} hidden`} aria-hidden="true">
         <Image
           src="/assets/roadmap/bottom%20line.png"
           alt=""
           fill
           sizes="100vw"
           className="object-contain pointer-events-none"
+        />
+      </div>
+
+      {/* Bottom decorative line */}
+      <div
+        className="absolute bottom-0 inset-x-0 pointer-events-none z-0"
+        aria-hidden={true}
+      >
+        <Image
+          src="/assets/roadmap/bottom line.svg"
+          alt=""
+          width={1920}
+          height={32}
+          className="w-full h-auto opacity-90"
+          loading="lazy"
+          priority={false}
         />
       </div>
     </section>

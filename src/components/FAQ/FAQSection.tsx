@@ -39,15 +39,16 @@ function FAQItemRow({ item, index, isOpen, onToggle, headerRef }: {
 
   // Background frame swap based on state
   const bgUrl = isOpen
-    ? "/assets/Whitepaper/FAQ/opened question frame.png"
-    : "/assets/Whitepaper/FAQ/unopened question frame.png"
+    ? "/assets/Whitepaper/FAQ/opened_question.svg"
+    : "/assets/Whitepaper/FAQ/unopened_question.svg"
 
   return (
     <div
-      className="relative rounded-xl overflow-hidden"
+      className="relative"
       style={{
         backgroundImage: `url('${bgUrl}')`,
-        backgroundSize: 'cover',
+        backgroundSize: 'contain',
+        backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
       }}
     >
