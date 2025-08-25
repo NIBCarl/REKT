@@ -3,20 +3,48 @@
 }
 
 .cardFrame {
+  position: relative;
+  isolation: isolate;
   background: var(--background-card);
-  border: 2px solid var(--bright-cyan-glow);
+  /* border removed in favor of SVG overlay frame */
   border-radius: 16px;
-  padding: 1.5rem;
-  box-shadow: 0 0 15px rgba(0, 209, 255, 0.3), inset 0 0 15px rgba(0, 209, 255, 0.2);
+  padding: 1.75rem;
+  /* outer glow only; removed inset glow to prevent rectangular halo */
+  box-shadow: 0 0 15px rgba(0, 209, 255, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* overflow removed to allow avatar overlap */
+}
+
+.cardFrame > * {
+  position: relative;
+  z-index: 1;
+}
+
+.cardFrame::before {
+  content: "";
+  position: absolute;
+  /* render frame exactly on the card bounds */
+  inset: 0;
+  border-radius: inherit;
+  background-image: url('/assets/Team/border of the Icon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  /* keep intrinsic proportions to maintain solid stroke */
+  background-size: 100% 100%;
+  /* crisp solid neon glow */
+  filter: drop-shadow(0 0 8px rgba(0, 209, 255, 0.85)) drop-shadow(0 0 22px rgba(0, 209, 255, 0.5));
+  will-change: filter;
+  pointer-events: none;
+  z-index: 0; /* render behind card content */
 }
 
 .cardFrame:hover {
   transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 0 24px rgba(0, 209, 255, 0.45), inset 0 0 18px rgba(0, 209, 255, 0.25);
+  /* stronger outer glow on hover; no inset to avoid inner rectangle */
+  box-shadow: 0 0 24px rgba(0, 209, 255, 0.45);
 }
 
-/* frameOverlay removed: using CSS border instead of SVG frame */
+/* Using SVG frame overlay instead of CSS border */
 
 .avatarCircle {
   position: relative;
@@ -26,8 +54,15 @@
   border: 3px solid var(--bright-cyan-glow);
   background: linear-gradient(to bottom, var(--avatar-bg-gradient-start), var(--avatar-bg-gradient-end));
   box-shadow: 0 0 15px var(--bright-cyan-glow);
-  margin: -74px auto 16px auto;
+  margin: -74px auto 22px auto;
   overflow: hidden;
+  z-index: 2; /* ensure avatar appears above the frame */
+}
+
+@media (min-width: 768px) {
+  .cardFrame {
+    padding-top: 2rem;
+  }
 }
 
 .avatarInner {

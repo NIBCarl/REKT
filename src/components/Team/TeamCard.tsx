@@ -4,7 +4,20 @@ import Image from 'next/image'
 import styles from './TeamSection.module.css'
 import type { TeamMember } from '@/data/teamData'
 
-export default function TeamCard({ name, role, desc, avatar }: TeamMember) {
+export default function TeamCard({ name, role, desc, avatar, splitAfter }: TeamMember) {
+  // Compute an optional forced split for desktop to match the reference line breaks
+  let pre = ''
+  let post = ''
+  if (splitAfter) {
+    const idx = desc.indexOf(splitAfter)
+    if (idx !== -1) {
+      const cut = idx + splitAfter.length
+      pre = desc.slice(0, cut).trim()
+      post = desc.slice(cut).trim()
+    }
+  }
+  const descClasses =
+    'text-text-secondary text-base leading-relaxed max-w-[40ch] md:max-w-[46ch] lg:max-w-[50ch] xl:max-w-[52ch] mx-auto mt-3'
   return (
     <article className={`${styles.cardFrame} text-center relative`}>
       {/* Avatar wrapper */}
@@ -31,11 +44,23 @@ export default function TeamCard({ name, role, desc, avatar }: TeamMember) {
             />
           </div>
       </div>
-
+  
       {/* Text content */}
-      <h3 className="text-xl font-primary font-bold mb-1 text-white">{name}</h3>
-      <p className={`${styles.roleText} text-sm font-semibold mb-2`}>{role}</p>
-      <p className="text-gray-300 text-sm">{desc}</p>
+      <h3 className="text-2xl md:text-3xl lg:text-4xl font-primary font-bold mb-2 text-white">{name}</h3>
+      <p className={`${styles.roleText} text-base font-semibold mb-3`}>{role}</p>
+      {/* Single paragraph: natural wrap on small; forced break on md+ */}
+      <p className={descClasses}>
+        {pre && post ? (
+          <>
+            <span className="md:whitespace-nowrap">{pre} </span>
+            <br className="hidden md:block" />
+            <span>{post}</span>
+          </>
+        ) : (
+          desc
+        )}
+      </p>
     </article>
   )
 }
+
