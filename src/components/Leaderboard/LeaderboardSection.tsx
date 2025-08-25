@@ -4,25 +4,228 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 // Leaderboard section replaced with static SVG frame; hooks no longer needed.
+import { useEffect, useState } from "react";
 
 /*
  * Loser Leaderboard component – static SVG frame render (stand-alone, responsive)
  */
 export default function LeaderboardSection() {
   const router = useRouter();
-  // Static replacement: render the provided SVG frame only.
+  // Design tokens based on public/assets/leaderboard/leaderboard.json
+  const COLORS = {
+    headerBg: "#00a0b0",
+    rowStandard: "#3a2a5e",
+    rank1: "#40e0d0",
+    rank2: "#3b5998",
+    rank3: "#8b4513",
+    textPrimary: "#ffffff",
+    textAccent: "#ff4d4d",
+    pillBg: "rgba(0, 160, 176, 0.5)",
+    pillBorder: "#00a0b0",
+  } as const;
+
+  type LeaderboardEntry = {
+    rank: number;
+    wallet: string;
+    rektScore: number;
+    totalLosses: number;
+    purchase: number;
+  };
+
+  const [rows, setRows] = useState<LeaderboardEntry[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch("/api/leaderboard", { cache: "no-store" });
+        if (!res.ok) throw new Error("Failed to load leaderboard");
+        const json = (await res.json()) as LeaderboardEntry[];
+        if (!cancelled) setRows(json);
+      } catch (e: unknown) {
+        const msg = e instanceof Error ? e.message : "Unknown error";
+        if (!cancelled) setError(msg);
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const formatNumber = (n: number) => n.toLocaleString(undefined);
+  const formatCurrency = (n: number) =>
+    `$${n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+  const rowBgForRank = (rank: number) => {
+    if (rank === 1) return COLORS.rank1;
+    if (rank === 2) return COLORS.rank2;
+    if (rank === 3) return COLORS.rank3;
+    return COLORS.rowStandard;
+  };
+
+  // Softer, semi-transparent backgrounds for rows, tuned to match the reference look
+  const rowBgSoftForRank = (rank: number) => {
+    if (rank === 1) return "rgba(64, 224, 208, 0.22)"; // teal
+    if (rank === 2) return "rgba(59, 89, 152, 0.25)"; // blue
+    if (rank === 3) return "rgba(139, 69, 19, 0.28)"; // bronze
+    return "rgba(58, 42, 94, 0.22)"; // standard
+  };
 
   return (
     <section className="py-20 relative mt-8">
       <div className="relative max-w-6xl mx-auto px-4">
         <Image
-          src="/assets/leaderboard/frame.svg"
+          src="/assets/leaderboard/frams.svg"
           alt="Loser Leaderboard"
           width={2000}
           height={800}
           className="w-full h-auto"
           priority
         />
+
+        {/* Table overlay inside the frame */}
+        <div className="absolute left-1/2 -translate-x-1/2 top-[180px] md:top-[200px] lg:top-[220px] w-[92%] md:w-[88%] lg:w-[82%] bottom-[125px] overflow-hidden z-20">
+          <div
+            className="relative h-full w-full rounded-xl overflow-hidden backdrop-blur-sm border-2 shadow-[0_0_20px_rgba(138,43,226,0.35)]"
+            style={{
+              borderColor: "#00d1ff",
+              boxShadow: "0 0 18px rgba(0, 209, 255, 0.35), 0 0 28px rgba(138, 43, 226, 0.25)",
+              backgroundColor: "rgba(26, 15, 43, 0.45)",
+            }}
+          >
+            {/* Cyan top line */}
+            <div className="absolute inset-x-0 top-0 h-[4px] bg-[#00d1ff] shadow-[0_0_10px_rgba(0,209,255,0.8)]" />
+
+            {/* Subtle vertical separators for columns (5 cols -> 4 separators) */}
+            <div className="absolute top-0 bottom-0 left-4 right-4 pointer-events-none z-[1]">
+              <div className="absolute top-0 bottom-0 left-[20%] w-px bg-[rgba(0,209,255,0.18)]" />
+              <div className="absolute top-0 bottom-0 left-[40%] w-px bg-[rgba(0,209,255,0.18)]" />
+              <div className="absolute top-0 bottom-0 left-[60%] w-px bg-[rgba(0,209,255,0.18)]" />
+              <div className="absolute top-0 bottom-0 left-[80%] w-px bg-[rgba(0,209,255,0.18)]" />
+            </div>
+            {/* Header */}
+            <div
+              className="px-4 py-3 sticky top-0 z-10 backdrop-blur-sm"
+              style={{
+                background: "linear-gradient(180deg, rgba(0,209,255,0.12) 0%, rgba(44,29,74,0.65) 100%)",
+                color: COLORS.textPrimary,
+                borderBottom: "1px solid rgba(0, 209, 255, 0.25)",
+              }}
+            >
+              <div className="grid grid-cols-5 text-sm font-semibold divide-x divide-[rgba(0,209,255,0.18)]">
+                <div className="px-2">Rank</div>
+                <div className="px-2">Loser</div>
+                <div className="px-2 text-right">Rekt Score</div>
+                <div className="px-2 text-right">Total Losses</div>
+                <div className="px-2 text-right">Purchase</div>
+              </div>
+            </div>
+
+            {/* Body */}
+            <div className="h-[calc(100%-48px)] overflow-y-auto relative z-[2]">
+              {loading && (
+                <div className="p-6 text-center" style={{ color: COLORS.textPrimary }}>
+                  Loading leaderboard...
+                </div>
+              )}
+              {error && !loading && (
+                <div className="p-6 text-center text-red-400">{error}</div>
+              )}
+              {!loading && !error && rows.length === 0 && (
+                <div className="p-6 text-center" style={{ color: COLORS.textPrimary }}>
+                  No data available.
+                </div>
+              )}
+
+              {!loading && !error &&
+                rows.map((r) => (
+                  <div
+                    key={r.rank}
+                    className="px-4 py-2 grid grid-cols-5 items-center divide-x divide-[rgba(0,209,255,0.12)]"
+                    style={{
+                      backgroundColor: rowBgSoftForRank(r.rank),
+                      color: COLORS.textPrimary,
+                      borderBottom: "1px solid rgba(0, 209, 255, 0.2)",
+                    }}
+                  >
+                    <div className="px-2 flex items-center gap-2">
+                      <span className="text-base">
+                        {r.rank === 1
+                          ? "🥇 1"
+                          : r.rank === 2
+                          ? "🥈 2"
+                          : r.rank === 3
+                          ? "🥉 3"
+                          : r.rank >= 4 && r.rank <= 10
+                          ? (
+                              <>
+                                <span className="text-gray-400 text-xs mr-2">#{r.rank}</span>
+                                <span className="font-semibold">{r.rank}</span>
+                              </>
+                            )
+                          : `#${r.rank}`}
+                      </span>
+                    </div>
+                    <div className="px-2 font-medium min-w-0 flex items-center gap-2">
+                      <Image
+                        src="/assets/leaderboard/Loser%20icon.svg"
+                        alt="Loser icon"
+                        width={24}
+                        height={24}
+                        className="w-6 h-6 rounded-full shrink-0"
+                      />
+                      <span className="truncate" title={r.wallet}>{r.wallet}</span>
+                    </div>
+                    <div className="px-2 text-right">
+                      <span
+                        className="inline-block"
+                        style={{
+                          backgroundColor: COLORS.pillBg,
+                          borderRadius: 16,
+                          padding: "4px 10px",
+                          border: `1px solid ${COLORS.pillBorder}`,
+                        }}
+                      >
+                        {formatNumber(r.rektScore)}
+                      </span>
+                    </div>
+                    <div className="px-2 text-right">
+                      <span
+                        className="inline-block"
+                        style={{
+                          backgroundColor: COLORS.pillBg,
+                          borderRadius: 16,
+                          padding: "4px 10px",
+                          border: `1px solid ${COLORS.pillBorder}`,
+                          color: COLORS.textAccent,
+                        }}
+                      >
+                        {formatCurrency(r.totalLosses)}
+                      </span>
+                    </div>
+                    <div className="px-2 text-right">
+                      <span
+                        className="inline-block"
+                        style={{
+                          backgroundColor: COLORS.pillBg,
+                          borderRadius: 16,
+                          padding: "4px 10px",
+                          border: `1px solid ${COLORS.pillBorder}`,
+                        }}
+                      >
+                        {formatCurrency(r.purchase)}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+            </div>
+          </div>
+        </div>
+
         {/* Side GIF animations */}
         <div className="pointer-events-none absolute left-10 top-4 w-40 h-40 z-10">
           <Image
@@ -84,3 +287,4 @@ export default function LeaderboardSection() {
     </section>
   );
 }
+
